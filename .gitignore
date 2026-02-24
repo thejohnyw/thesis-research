@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.log
+
+# Data outputs and raw data
+data/processed/
+data/raw/
+
+# Local secrets or env files
+.env
+.env.*
