@@ -1,4 +1,4 @@
-# Baseline Reproduction & Audit — Week 6
+# Baseline Reproduction & Audit
 **NBA Game Outcome Prediction Using Structured and Text Features**
 
 ---
@@ -67,7 +67,7 @@ Both text-based models remain below the 0.5 chance line throughout. No consisten
 ## 4. Error Analysis
 
 **4.1 Baseline 1: calibration drift in early splits.**
-Split 1 (smallest training set, 261 games) yields accuracy exactly at 50% — the model defaults to predicting the majority class. Calibration error (0.149) is elevated, reflecting poorly tuned probability estimates on a small sample. From Split 2 onward the model calibrates and accuracy and ROC AUC rise consistently. The primary remaining errors cluster around back-to-back games and games involving closely matched opponents, where rolling statistics alone provide insufficient discriminating power.
+Split 1 (smallest training set, 261 games) yields accuracy exactly at 50%. The model defaults to predicting the majority class. Calibration error (0.149) is elevated, reflecting poorly tuned probability estimates on a small sample. From Split 2 onward the model calibrates and accuracy and ROC AUC rise consistently. The primary remaining errors cluster around back-to-back games and games involving closely matched opponents, where rolling statistics alone provide insufficient discriminating power.
 
 **4.2 Baselines 2 & 3: sub-random discrimination.**
 The ROC AUCs of 0.391 and 0.456 are *below* 0.5, meaning these models systematically predict the wrong class more often than chance. Three compounding causes:
@@ -104,3 +104,6 @@ The audit motivates three concrete directions:
 1. **Richer structured features** — incorporate player-level statistics (per-player rolling averages, starter lineup quality) from the NBA stats API. This is the highest-expected-value improvement for Baseline 1.
 2. **Larger or higher-quality text corpus** — if text is retained, either source full-season GDELT data or replace with structured pre-game reports (official injury designations, lineup announcements) encoded as categorical/numerical features rather than free text.
 3. **Dimensionality-aware text integration** — compress embeddings to 16–32 PCA components before fusion, or explore attention-based pooling to weight articles by relevance rather than mean-pooling.
+
+## References
+GPT Codex and Claude Code were used for implementation and analysis
