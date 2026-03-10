@@ -1,0 +1,954 @@
+game_id,date,home_team,home_score,away_team,away_score,home_win,cutoff_utc
+22500001,2025-10-21,Oklahoma City Thunder,125,Houston Rockets,124,1,2025-10-21
+22500002,2025-10-21,Los Angeles Lakers,109,Golden State Warriors,119,0,2025-10-21
+22500003,2025-10-22,New York Knicks,119,Cleveland Cavaliers,111,1,2025-10-22
+22500004,2025-10-22,Dallas Mavericks,92,San Antonio Spurs,125,0,2025-10-22
+22500080,2025-10-22,Charlotte Hornets,136,Brooklyn Nets,117,1,2025-10-22
+22500081,2025-10-22,Orlando Magic,125,Miami Heat,121,1,2025-10-22
+22500082,2025-10-22,Atlanta Hawks,118,Toronto Raptors,138,0,2025-10-22
+22500083,2025-10-22,Boston Celtics,116,Philadelphia 76ers,117,0,2025-10-22
+22500084,2025-10-22,Chicago Bulls,115,Detroit Pistons,111,1,2025-10-22
+22500085,2025-10-22,Memphis Grizzlies,128,New Orleans Pelicans,122,1,2025-10-22
+22500086,2025-10-22,Milwaukee Bucks,133,Washington Wizards,120,1,2025-10-22
+22500087,2025-10-22,Utah Jazz,129,LA Clippers,108,1,2025-10-22
+22500088,2025-10-22,Phoenix Suns,120,Sacramento Kings,116,1,2025-10-22
+22500089,2025-10-22,Portland Trail Blazers,114,Minnesota Timberwolves,118,0,2025-10-22
+22500005,2025-10-23,Indiana Pacers,135,Oklahoma City Thunder,141,0,2025-10-23
+22500006,2025-10-23,Golden State Warriors,137,Denver Nuggets,131,1,2025-10-23
+22500018,2025-10-24,New York Knicks,105,Boston Celtics,95,1,2025-10-24
+22500019,2025-10-24,Los Angeles Lakers,128,Minnesota Timberwolves,110,1,2025-10-24
+22500090,2025-10-24,Orlando Magic,107,Atlanta Hawks,111,0,2025-10-24
+22500091,2025-10-24,Brooklyn Nets,124,Cleveland Cavaliers,131,0,2025-10-24
+22500092,2025-10-24,Toronto Raptors,116,Milwaukee Bucks,122,0,2025-10-24
+22500093,2025-10-24,Houston Rockets,111,Detroit Pistons,115,0,2025-10-24
+22500094,2025-10-24,Memphis Grizzlies,114,Miami Heat,146,0,2025-10-24
+22500095,2025-10-24,New Orleans Pelicans,116,San Antonio Spurs,120,0,2025-10-24
+22500096,2025-10-24,Dallas Mavericks,107,Washington Wizards,117,0,2025-10-24
+22500097,2025-10-24,Portland Trail Blazers,139,Golden State Warriors,119,1,2025-10-24
+22500098,2025-10-24,Sacramento Kings,105,Utah Jazz,104,1,2025-10-24
+22500099,2025-10-24,LA Clippers,129,Phoenix Suns,102,1,2025-10-24
+22500100,2025-10-25,Orlando Magic,98,Chicago Bulls,110,0,2025-10-25
+22500101,2025-10-25,Atlanta Hawks,100,Oklahoma City Thunder,117,0,2025-10-25
+22500102,2025-10-25,Philadelphia 76ers,125,Charlotte Hornets,121,1,2025-10-25
+22500103,2025-10-25,Memphis Grizzlies,128,Indiana Pacers,103,1,2025-10-25
+22500104,2025-10-25,Denver Nuggets,133,Phoenix Suns,111,1,2025-10-25
+22500105,2025-10-26,San Antonio Spurs,118,Brooklyn Nets,107,1,2025-10-26
+22500106,2025-10-26,Detroit Pistons,119,Boston Celtics,113,1,2025-10-26
+22500107,2025-10-26,Cleveland Cavaliers,118,Milwaukee Bucks,113,1,2025-10-26
+22500108,2025-10-26,Miami Heat,115,New York Knicks,107,1,2025-10-26
+22500109,2025-10-26,Washington Wizards,113,Charlotte Hornets,139,0,2025-10-26
+22500110,2025-10-26,Minnesota Timberwolves,114,Indiana Pacers,110,1,2025-10-26
+22500111,2025-10-26,Dallas Mavericks,139,Toronto Raptors,129,1,2025-10-26
+22500112,2025-10-26,LA Clippers,114,Portland Trail Blazers,107,1,2025-10-26
+22500113,2025-10-26,Sacramento Kings,120,Los Angeles Lakers,127,0,2025-10-26
+22500007,2025-10-27,Detroit Pistons,95,Cleveland Cavaliers,116,0,2025-10-27
+22500008,2025-10-27,Minnesota Timberwolves,114,Denver Nuggets,127,0,2025-10-27
+22500114,2025-10-27,Philadelphia 76ers,136,Orlando Magic,124,1,2025-10-27
+22500115,2025-10-27,Chicago Bulls,128,Atlanta Hawks,123,1,2025-10-27
+22500116,2025-10-27,Houston Rockets,137,Brooklyn Nets,109,1,2025-10-27
+22500117,2025-10-27,New Orleans Pelicans,90,Boston Celtics,122,0,2025-10-27
+22500118,2025-10-27,San Antonio Spurs,121,Toronto Raptors,103,1,2025-10-27
+22500119,2025-10-27,Dallas Mavericks,94,Oklahoma City Thunder,101,0,2025-10-27
+22500120,2025-10-27,Utah Jazz,138,Phoenix Suns,134,1,2025-10-27
+22500121,2025-10-27,Golden State Warriors,131,Memphis Grizzlies,118,1,2025-10-27
+22500122,2025-10-27,Los Angeles Lakers,108,Portland Trail Blazers,122,0,2025-10-27
+22500123,2025-10-28,Washington Wizards,134,Philadelphia 76ers,139,0,2025-10-28
+22500124,2025-10-28,Miami Heat,144,Charlotte Hornets,117,1,2025-10-28
+22500125,2025-10-28,Milwaukee Bucks,121,New York Knicks,111,1,2025-10-28
+22500126,2025-10-28,Oklahoma City Thunder,107,Sacramento Kings,101,1,2025-10-28
+22500127,2025-10-28,Golden State Warriors,98,LA Clippers,79,1,2025-10-28
+22500128,2025-10-29,Boston Celtics,125,Cleveland Cavaliers,105,1,2025-10-29
+22500129,2025-10-29,Detroit Pistons,135,Orlando Magic,116,1,2025-10-29
+22500130,2025-10-29,Brooklyn Nets,112,Atlanta Hawks,117,0,2025-10-29
+22500131,2025-10-29,Toronto Raptors,121,Houston Rockets,139,0,2025-10-29
+22500132,2025-10-29,Chicago Bulls,126,Sacramento Kings,113,1,2025-10-29
+22500133,2025-10-29,Dallas Mavericks,107,Indiana Pacers,105,1,2025-10-29
+22500134,2025-10-29,Denver Nuggets,122,New Orleans Pelicans,88,1,2025-10-29
+22500135,2025-10-29,Utah Jazz,134,Portland Trail Blazers,136,0,2025-10-29
+22500136,2025-10-29,Minnesota Timberwolves,115,Los Angeles Lakers,116,0,2025-10-29
+22500137,2025-10-29,Phoenix Suns,113,Memphis Grizzlies,114,0,2025-10-29
+22500138,2025-10-30,Charlotte Hornets,107,Orlando Magic,123,0,2025-10-30
+22500139,2025-10-30,Milwaukee Bucks,120,Golden State Warriors,110,1,2025-10-30
+22500140,2025-10-30,Oklahoma City Thunder,127,Washington Wizards,108,1,2025-10-30
+22500141,2025-10-30,San Antonio Spurs,107,Miami Heat,101,1,2025-10-30
+22500020,2025-10-31,Indiana Pacers,108,Atlanta Hawks,128,0,2025-10-31
+22500021,2025-10-31,Philadelphia 76ers,108,Boston Celtics,109,0,2025-10-31
+22500022,2025-10-31,Cleveland Cavaliers,101,Toronto Raptors,112,0,2025-10-31
+22500023,2025-10-31,Chicago Bulls,135,New York Knicks,125,1,2025-10-31
+22500024,2025-10-31,Memphis Grizzlies,112,Los Angeles Lakers,117,0,2025-10-31
+22500025,2025-10-31,Phoenix Suns,118,Utah Jazz,96,1,2025-10-31
+22500026,2025-10-31,Portland Trail Blazers,109,Denver Nuggets,107,1,2025-10-31
+22500027,2025-10-31,LA Clippers,126,New Orleans Pelicans,124,1,2025-10-31
+22500142,2025-11-01,Milwaukee Bucks,133,Sacramento Kings,135,0,2025-11-01
+22500143,2025-11-01,Charlotte Hornets,105,Minnesota Timberwolves,122,0,2025-11-01
+22500144,2025-11-01,Indiana Pacers,114,Golden State Warriors,109,1,2025-11-01
+22500145,2025-11-01,Washington Wizards,94,Orlando Magic,125,0,2025-11-01
+22500146,2025-11-01,Boston Celtics,101,Houston Rockets,128,0,2025-11-01
+22500148,2025-11-02,Oklahoma City Thunder,137,New Orleans Pelicans,106,1,2025-11-02
+22500149,2025-11-02,Brooklyn Nets,105,Philadelphia 76ers,129,0,2025-11-02
+22500150,2025-11-02,Charlotte Hornets,126,Utah Jazz,103,1,2025-11-02
+22500151,2025-11-02,Cleveland Cavaliers,117,Atlanta Hawks,109,1,2025-11-02
+22500152,2025-11-02,Toronto Raptors,117,Memphis Grizzlies,104,1,2025-11-02
+22500153,2025-11-02,New York Knicks,128,Chicago Bulls,116,1,2025-11-02
+22500154,2025-11-02,Phoenix Suns,130,San Antonio Spurs,118,1,2025-11-02
+22500155,2025-11-02,Los Angeles Lakers,130,Miami Heat,120,1,2025-11-02
+22500156,2025-11-03,Brooklyn Nets,109,Minnesota Timberwolves,125,0,2025-11-03
+22500157,2025-11-03,Indiana Pacers,115,Milwaukee Bucks,117,0,2025-11-03
+22500158,2025-11-03,Boston Celtics,103,Utah Jazz,105,0,2025-11-03
+22500159,2025-11-03,New York Knicks,119,Washington Wizards,102,1,2025-11-03
+22500160,2025-11-03,Houston Rockets,110,Dallas Mavericks,102,1,2025-11-03
+22500161,2025-11-03,Memphis Grizzlies,106,Detroit Pistons,114,0,2025-11-03
+22500162,2025-11-03,Denver Nuggets,130,Sacramento Kings,124,1,2025-11-03
+22500163,2025-11-03,Portland Trail Blazers,115,Los Angeles Lakers,123,0,2025-11-03
+22500164,2025-11-03,LA Clippers,119,Miami Heat,120,0,2025-11-03
+22500165,2025-11-04,Toronto Raptors,128,Milwaukee Bucks,100,1,2025-11-04
+22500166,2025-11-04,Atlanta Hawks,127,Orlando Magic,112,1,2025-11-04
+22500167,2025-11-04,Chicago Bulls,113,Philadelphia 76ers,111,1,2025-11-04
+22500168,2025-11-04,New Orleans Pelicans,116,Charlotte Hornets,112,1,2025-11-04
+22500169,2025-11-04,Golden State Warriors,118,Phoenix Suns,107,1,2025-11-04
+22500170,2025-11-04,LA Clippers,107,Oklahoma City Thunder,126,0,2025-11-04
+22500171,2025-11-05,Cleveland Cavaliers,132,Philadelphia 76ers,121,1,2025-11-05
+22500172,2025-11-05,Detroit Pistons,114,Utah Jazz,103,1,2025-11-05
+22500173,2025-11-05,Indiana Pacers,103,Brooklyn Nets,112,0,2025-11-05
+22500174,2025-11-05,Boston Celtics,136,Washington Wizards,107,1,2025-11-05
+22500175,2025-11-05,New York Knicks,137,Minnesota Timberwolves,114,1,2025-11-05
+22500176,2025-11-05,Memphis Grizzlies,109,Houston Rockets,124,0,2025-11-05
+22500177,2025-11-05,Dallas Mavericks,99,New Orleans Pelicans,101,0,2025-11-05
+22500178,2025-11-05,Denver Nuggets,122,Miami Heat,112,1,2025-11-05
+22500179,2025-11-05,Los Angeles Lakers,118,San Antonio Spurs,116,1,2025-11-05
+22500180,2025-11-05,Portland Trail Blazers,121,Oklahoma City Thunder,119,1,2025-11-05
+22500181,2025-11-05,Sacramento Kings,121,Golden State Warriors,116,1,2025-11-05
+22500182,2025-11-06,Phoenix Suns,115,LA Clippers,102,1,2025-11-06
+22500028,2025-11-07,Orlando Magic,123,Boston Celtics,110,1,2025-11-07
+22500029,2025-11-07,Washington Wizards,115,Cleveland Cavaliers,148,0,2025-11-07
+22500030,2025-11-07,Atlanta Hawks,97,Toronto Raptors,109,0,2025-11-07
+22500031,2025-11-07,Brooklyn Nets,107,Detroit Pistons,125,0,2025-11-07
+22500032,2025-11-07,San Antonio Spurs,121,Houston Rockets,110,1,2025-11-07
+22500033,2025-11-07,Miami Heat,126,Charlotte Hornets,108,1,2025-11-07
+22500034,2025-11-07,Memphis Grizzlies,118,Dallas Mavericks,104,1,2025-11-07
+22500035,2025-11-07,Milwaukee Bucks,126,Chicago Bulls,110,1,2025-11-07
+22500036,2025-11-07,Minnesota Timberwolves,137,Utah Jazz,97,1,2025-11-07
+22500037,2025-11-07,Denver Nuggets,129,Golden State Warriors,104,1,2025-11-07
+22500038,2025-11-07,Sacramento Kings,101,Oklahoma City Thunder,132,0,2025-11-07
+22500183,2025-11-08,Washington Wizards,105,Dallas Mavericks,111,0,2025-11-08
+22500184,2025-11-08,Philadelphia 76ers,130,Toronto Raptors,120,1,2025-11-08
+22500185,2025-11-08,Atlanta Hawks,122,Los Angeles Lakers,102,1,2025-11-08
+22500186,2025-11-08,Cleveland Cavaliers,128,Chicago Bulls,122,1,2025-11-08
+22500187,2025-11-08,Miami Heat,136,Portland Trail Blazers,131,1,2025-11-08
+22500188,2025-11-08,San Antonio Spurs,126,New Orleans Pelicans,119,1,2025-11-08
+22500189,2025-11-08,Denver Nuggets,117,Indiana Pacers,100,1,2025-11-08
+22500190,2025-11-08,LA Clippers,103,Phoenix Suns,114,0,2025-11-08
+22500191,2025-11-09,Milwaukee Bucks,115,Houston Rockets,122,0,2025-11-09
+22500192,2025-11-09,New York Knicks,134,Brooklyn Nets,98,1,2025-11-09
+22500193,2025-11-09,Orlando Magic,107,Boston Celtics,111,0,2025-11-09
+22500194,2025-11-09,Memphis Grizzlies,100,Oklahoma City Thunder,114,0,2025-11-09
+22500195,2025-11-09,Philadelphia 76ers,108,Detroit Pistons,111,0,2025-11-09
+22500196,2025-11-09,Golden State Warriors,114,Indiana Pacers,83,1,2025-11-09
+22500197,2025-11-09,Sacramento Kings,117,Minnesota Timberwolves,144,0,2025-11-09
+22500198,2025-11-10,Charlotte Hornets,111,Los Angeles Lakers,121,0,2025-11-10
+22500199,2025-11-10,Detroit Pistons,137,Washington Wizards,135,1,2025-11-10
+22500200,2025-11-10,Orlando Magic,115,Portland Trail Blazers,112,1,2025-11-10
+22500201,2025-11-10,Miami Heat,140,Cleveland Cavaliers,138,1,2025-11-10
+22500202,2025-11-10,Chicago Bulls,117,San Antonio Spurs,121,0,2025-11-10
+22500203,2025-11-10,Dallas Mavericks,114,Milwaukee Bucks,116,0,2025-11-10
+22500204,2025-11-10,Phoenix Suns,121,New Orleans Pelicans,98,1,2025-11-10
+22500205,2025-11-10,Utah Jazz,113,Minnesota Timberwolves,120,0,2025-11-10
+22500206,2025-11-10,LA Clippers,102,Atlanta Hawks,105,0,2025-11-10
+22500207,2025-11-11,Brooklyn Nets,109,Toronto Raptors,119,0,2025-11-11
+22500208,2025-11-11,New York Knicks,133,Memphis Grizzlies,120,1,2025-11-11
+22500209,2025-11-11,Philadelphia 76ers,102,Boston Celtics,100,1,2025-11-11
+22500210,2025-11-11,Oklahoma City Thunder,126,Golden State Warriors,102,1,2025-11-11
+22500211,2025-11-11,Utah Jazz,152,Indiana Pacers,128,1,2025-11-11
+22500212,2025-11-11,Sacramento Kings,108,Denver Nuggets,122,0,2025-11-11
+22500213,2025-11-12,Charlotte Hornets,111,Milwaukee Bucks,100,1,2025-11-12
+22500214,2025-11-12,Detroit Pistons,124,Chicago Bulls,113,1,2025-11-12
+22500215,2025-11-12,New York Knicks,107,Orlando Magic,124,0,2025-11-12
+22500216,2025-11-12,Boston Celtics,131,Memphis Grizzlies,95,1,2025-11-12
+22500217,2025-11-12,Miami Heat,116,Cleveland Cavaliers,130,0,2025-11-12
+22500218,2025-11-12,Houston Rockets,135,Washington Wizards,112,1,2025-11-12
+22500219,2025-11-12,New Orleans Pelicans,117,Portland Trail Blazers,125,0,2025-11-12
+22500220,2025-11-12,San Antonio Spurs,120,Golden State Warriors,125,0,2025-11-12
+22500221,2025-11-12,Dallas Mavericks,114,Phoenix Suns,123,0,2025-11-12
+22500222,2025-11-12,Oklahoma City Thunder,121,Los Angeles Lakers,92,1,2025-11-12
+22500223,2025-11-12,Sacramento Kings,100,Atlanta Hawks,133,0,2025-11-12
+22500224,2025-11-12,LA Clippers,116,Denver Nuggets,130,0,2025-11-12
+22500225,2025-11-13,Cleveland Cavaliers,113,Toronto Raptors,126,0,2025-11-13
+22500226,2025-11-13,Phoenix Suns,133,Indiana Pacers,98,1,2025-11-13
+22500227,2025-11-13,Utah Jazz,122,Atlanta Hawks,132,0,2025-11-13
+22500039,2025-11-14,New York Knicks,140,Miami Heat,132,1,2025-11-14
+22500040,2025-11-14,Orlando Magic,105,Brooklyn Nets,98,1,2025-11-14
+22500041,2025-11-14,Detroit Pistons,114,Philadelphia 76ers,105,1,2025-11-14
+22500042,2025-11-14,Houston Rockets,140,Portland Trail Blazers,116,1,2025-11-14
+22500043,2025-11-14,Milwaukee Bucks,147,Charlotte Hornets,134,1,2025-11-14
+22500044,2025-11-14,Minnesota Timberwolves,124,Sacramento Kings,110,1,2025-11-14
+22500045,2025-11-14,New Orleans Pelicans,104,Los Angeles Lakers,118,0,2025-11-14
+22500046,2025-11-14,Dallas Mavericks,127,LA Clippers,133,0,2025-11-14
+22500047,2025-11-14,San Antonio Spurs,108,Golden State Warriors,109,0,2025-11-14
+22500228,2025-11-15,Cleveland Cavaliers,108,Memphis Grizzlies,100,1,2025-11-15
+22500229,2025-11-15,Charlotte Hornets,96,Oklahoma City Thunder,109,0,2025-11-15
+22500230,2025-11-15,Indiana Pacers,111,Toronto Raptors,129,0,2025-11-15
+22500231,2025-11-15,Milwaukee Bucks,95,Los Angeles Lakers,119,0,2025-11-15
+22500232,2025-11-15,Minnesota Timberwolves,112,Denver Nuggets,123,0,2025-11-15
+22500233,2025-11-16,Boston Celtics,121,LA Clippers,118,1,2025-11-16
+22500234,2025-11-16,San Antonio Spurs,123,Sacramento Kings,110,1,2025-11-16
+22500235,2025-11-16,Washington Wizards,106,Brooklyn Nets,129,0,2025-11-16
+22500236,2025-11-16,Houston Rockets,117,Orlando Magic,113,1,2025-11-16
+22500237,2025-11-16,New Orleans Pelicans,106,Golden State Warriors,124,0,2025-11-16
+22500238,2025-11-16,Dallas Mavericks,138,Portland Trail Blazers,133,1,2025-11-16
+22500239,2025-11-16,Phoenix Suns,122,Atlanta Hawks,124,0,2025-11-16
+22500240,2025-11-16,Utah Jazz,150,Chicago Bulls,147,1,2025-11-16
+22500241,2025-11-17,Cleveland Cavaliers,118,Milwaukee Bucks,106,1,2025-11-17
+22500242,2025-11-17,Detroit Pistons,127,Indiana Pacers,112,1,2025-11-17
+22500243,2025-11-17,Philadelphia 76ers,110,LA Clippers,108,1,2025-11-17
+22500244,2025-11-17,Miami Heat,115,New York Knicks,113,1,2025-11-17
+22500245,2025-11-17,Toronto Raptors,110,Charlotte Hornets,108,1,2025-11-17
+22500246,2025-11-17,Minnesota Timberwolves,120,Dallas Mavericks,96,1,2025-11-17
+22500247,2025-11-17,New Orleans Pelicans,109,Oklahoma City Thunder,126,0,2025-11-17
+22500248,2025-11-17,Denver Nuggets,127,Chicago Bulls,130,0,2025-11-17
+22500249,2025-11-18,Orlando Magic,121,Golden State Warriors,113,1,2025-11-18
+22500250,2025-11-18,Brooklyn Nets,99,Boston Celtics,113,0,2025-11-18
+22500251,2025-11-18,Atlanta Hawks,112,Detroit Pistons,120,0,2025-11-18
+22500252,2025-11-18,San Antonio Spurs,111,Memphis Grizzlies,101,1,2025-11-18
+22500253,2025-11-18,Los Angeles Lakers,140,Utah Jazz,126,1,2025-11-18
+22500254,2025-11-18,Portland Trail Blazers,110,Phoenix Suns,127,0,2025-11-18
+22500255,2025-11-19,Cleveland Cavaliers,104,Houston Rockets,114,0,2025-11-19
+22500256,2025-11-19,Indiana Pacers,127,Charlotte Hornets,118,1,2025-11-19
+22500257,2025-11-19,Miami Heat,110,Golden State Warriors,96,1,2025-11-19
+22500258,2025-11-19,Philadelphia 76ers,112,Toronto Raptors,121,0,2025-11-19
+22500259,2025-11-19,Minnesota Timberwolves,120,Washington Wizards,109,1,2025-11-19
+22500260,2025-11-19,New Orleans Pelicans,118,Denver Nuggets,125,0,2025-11-19
+22500261,2025-11-19,Oklahoma City Thunder,113,Sacramento Kings,99,1,2025-11-19
+22500262,2025-11-19,Dallas Mavericks,111,New York Knicks,113,0,2025-11-19
+22500263,2025-11-19,Portland Trail Blazers,121,Chicago Bulls,122,0,2025-11-19
+22500264,2025-11-20,Orlando Magic,129,LA Clippers,101,1,2025-11-20
+22500265,2025-11-20,Memphis Grizzlies,137,Sacramento Kings,96,1,2025-11-20
+22500266,2025-11-20,Milwaukee Bucks,114,Philadelphia 76ers,123,0,2025-11-20
+22500267,2025-11-20,San Antonio Spurs,135,Atlanta Hawks,126,1,2025-11-20
+22500048,2025-11-21,Cleveland Cavaliers,120,Indiana Pacers,109,1,2025-11-21
+22500049,2025-11-21,Boston Celtics,105,Brooklyn Nets,113,0,2025-11-21
+22500050,2025-11-21,Toronto Raptors,140,Washington Wizards,110,1,2025-11-21
+22500051,2025-11-21,Chicago Bulls,107,Miami Heat,143,0,2025-11-21
+22500052,2025-11-21,Dallas Mavericks,118,New Orleans Pelicans,115,1,2025-11-21
+22500053,2025-11-21,Phoenix Suns,114,Minnesota Timberwolves,113,1,2025-11-21
+22500054,2025-11-21,Houston Rockets,109,Denver Nuggets,112,0,2025-11-21
+22500055,2025-11-21,Utah Jazz,112,Oklahoma City Thunder,144,0,2025-11-21
+22500056,2025-11-21,Golden State Warriors,123,Portland Trail Blazers,127,0,2025-11-21
+22500268,2025-11-22,Charlotte Hornets,116,LA Clippers,131,0,2025-11-22
+22500269,2025-11-22,Orlando Magic,133,New York Knicks,121,1,2025-11-22
+22500270,2025-11-22,New Orleans Pelicans,98,Atlanta Hawks,115,0,2025-11-22
+22500271,2025-11-22,Chicago Bulls,121,Washington Wizards,120,1,2025-11-22
+22500272,2025-11-22,Milwaukee Bucks,116,Detroit Pistons,129,0,2025-11-22
+22500273,2025-11-22,Dallas Mavericks,96,Memphis Grizzlies,102,0,2025-11-22
+22500274,2025-11-22,Denver Nuggets,123,Sacramento Kings,128,0,2025-11-22
+22500275,2025-11-23,Philadelphia 76ers,117,Miami Heat,127,0,2025-11-23
+22500276,2025-11-23,Atlanta Hawks,113,Charlotte Hornets,110,1,2025-11-23
+22500277,2025-11-23,Boston Celtics,138,Orlando Magic,129,1,2025-11-23
+22500278,2025-11-23,Cleveland Cavaliers,120,LA Clippers,105,1,2025-11-23
+22500279,2025-11-23,Toronto Raptors,119,Brooklyn Nets,109,1,2025-11-23
+22500280,2025-11-23,Oklahoma City Thunder,122,Portland Trail Blazers,95,1,2025-11-23
+22500281,2025-11-23,Phoenix Suns,111,San Antonio Spurs,102,1,2025-11-23
+22500282,2025-11-23,Utah Jazz,106,Los Angeles Lakers,108,0,2025-11-23
+22500283,2025-11-24,Indiana Pacers,117,Detroit Pistons,122,0,2025-11-24
+22500284,2025-11-24,Toronto Raptors,110,Cleveland Cavaliers,99,1,2025-11-24
+22500285,2025-11-24,Brooklyn Nets,100,New York Knicks,113,0,2025-11-24
+22500286,2025-11-24,Miami Heat,106,Dallas Mavericks,102,1,2025-11-24
+22500287,2025-11-24,Memphis Grizzlies,115,Denver Nuggets,125,0,2025-11-24
+22500288,2025-11-24,Milwaukee Bucks,103,Portland Trail Blazers,115,0,2025-11-24
+22500289,2025-11-24,New Orleans Pelicans,143,Chicago Bulls,130,1,2025-11-24
+22500290,2025-11-24,Phoenix Suns,92,Houston Rockets,114,0,2025-11-24
+22500291,2025-11-24,Golden State Warriors,134,Utah Jazz,117,1,2025-11-24
+22500292,2025-11-24,Sacramento Kings,117,Minnesota Timberwolves,112,1,2025-11-24
+22500057,2025-11-25,Washington Wizards,132,Atlanta Hawks,113,1,2025-11-25
+22500058,2025-11-25,Philadelphia 76ers,103,Orlando Magic,144,0,2025-11-25
+22500059,2025-11-25,Los Angeles Lakers,135,LA Clippers,118,1,2025-11-25
+22500060,2025-11-26,Boston Celtics,117,Detroit Pistons,114,1,2025-11-26
+22500061,2025-11-26,Charlotte Hornets,101,New York Knicks,129,0,2025-11-26
+22500062,2025-11-26,Miami Heat,106,Milwaukee Bucks,103,1,2025-11-26
+22500063,2025-11-26,Toronto Raptors,97,Indiana Pacers,95,1,2025-11-26
+22500064,2025-11-26,Oklahoma City Thunder,113,Minnesota Timberwolves,105,1,2025-11-26
+22500065,2025-11-26,New Orleans Pelicans,128,Memphis Grizzlies,133,0,2025-11-26
+22500066,2025-11-26,Golden State Warriors,100,Houston Rockets,104,0,2025-11-26
+22500067,2025-11-26,Portland Trail Blazers,102,San Antonio Spurs,115,0,2025-11-26
+22500068,2025-11-26,Sacramento Kings,100,Phoenix Suns,112,0,2025-11-26
+22500069,2025-11-28,Atlanta Hawks,130,Cleveland Cavaliers,123,1,2025-11-28
+22500070,2025-11-28,Brooklyn Nets,103,Philadelphia 76ers,115,0,2025-11-28
+22500071,2025-11-28,Charlotte Hornets,123,Chicago Bulls,116,1,2025-11-28
+22500072,2025-11-28,Detroit Pistons,109,Orlando Magic,112,0,2025-11-28
+22500073,2025-11-28,Indiana Pacers,119,Washington Wizards,86,1,2025-11-28
+22500074,2025-11-28,New York Knicks,118,Milwaukee Bucks,109,1,2025-11-28
+22500075,2025-11-28,Oklahoma City Thunder,123,Phoenix Suns,119,1,2025-11-28
+22500076,2025-11-28,Denver Nuggets,136,San Antonio Spurs,139,0,2025-11-28
+22500077,2025-11-28,Utah Jazz,128,Sacramento Kings,119,1,2025-11-28
+22500078,2025-11-28,Los Angeles Lakers,129,Dallas Mavericks,119,1,2025-11-28
+22500079,2025-11-28,LA Clippers,107,Memphis Grizzlies,112,0,2025-11-28
+22500293,2025-11-29,Minnesota Timberwolves,119,Boston Celtics,115,1,2025-11-29
+22500294,2025-11-29,Charlotte Hornets,118,Toronto Raptors,111,1,2025-11-29
+22500295,2025-11-29,Indiana Pacers,103,Chicago Bulls,101,1,2025-11-29
+22500296,2025-11-29,Miami Heat,135,Detroit Pistons,138,0,2025-11-29
+22500297,2025-11-29,Milwaukee Bucks,116,Brooklyn Nets,99,1,2025-11-29
+22500298,2025-11-29,Golden State Warriors,104,New Orleans Pelicans,96,1,2025-11-29
+22500299,2025-11-29,Phoenix Suns,112,Denver Nuggets,130,0,2025-11-29
+22500300,2025-11-29,LA Clippers,110,Dallas Mavericks,114,0,2025-11-29
+22500301,2025-11-30,Utah Jazz,101,Houston Rockets,129,0,2025-11-30
+22500302,2025-11-30,Cleveland Cavaliers,115,Boston Celtics,117,0,2025-11-30
+22500303,2025-11-30,New York Knicks,116,Toronto Raptors,94,1,2025-11-30
+22500304,2025-11-30,Philadelphia 76ers,134,Atlanta Hawks,142,0,2025-11-30
+22500305,2025-11-30,Portland Trail Blazers,115,Oklahoma City Thunder,123,0,2025-11-30
+22500306,2025-11-30,Minnesota Timberwolves,125,San Antonio Spurs,112,1,2025-11-30
+22500307,2025-11-30,Sacramento Kings,107,Memphis Grizzlies,115,0,2025-11-30
+22500308,2025-11-30,Los Angeles Lakers,133,New Orleans Pelicans,121,1,2025-11-30
+22500309,2025-12-01,Detroit Pistons,99,Atlanta Hawks,98,1,2025-12-01
+22500310,2025-12-01,Indiana Pacers,119,Cleveland Cavaliers,135,0,2025-12-01
+22500311,2025-12-01,Washington Wizards,129,Milwaukee Bucks,126,1,2025-12-01
+22500312,2025-12-01,Brooklyn Nets,116,Charlotte Hornets,103,1,2025-12-01
+22500313,2025-12-01,Miami Heat,140,LA Clippers,123,1,2025-12-01
+22500314,2025-12-01,Orlando Magic,125,Chicago Bulls,120,1,2025-12-01
+22500315,2025-12-01,Denver Nuggets,121,Dallas Mavericks,131,0,2025-12-01
+22500316,2025-12-01,Utah Jazz,133,Houston Rockets,125,1,2025-12-01
+22500317,2025-12-01,Los Angeles Lakers,108,Phoenix Suns,125,0,2025-12-01
+22500318,2025-12-02,Philadelphia 76ers,121,Washington Wizards,102,1,2025-12-02
+22500319,2025-12-02,Toronto Raptors,121,Portland Trail Blazers,118,1,2025-12-02
+22500320,2025-12-02,Boston Celtics,123,New York Knicks,117,1,2025-12-02
+22500321,2025-12-02,New Orleans Pelicans,142,Minnesota Timberwolves,149,0,2025-12-02
+22500322,2025-12-02,San Antonio Spurs,126,Memphis Grizzlies,119,1,2025-12-02
+22500323,2025-12-02,Golden State Warriors,112,Oklahoma City Thunder,124,0,2025-12-02
+22500324,2025-12-03,Cleveland Cavaliers,110,Portland Trail Blazers,122,0,2025-12-03
+22500325,2025-12-03,Indiana Pacers,120,Denver Nuggets,135,0,2025-12-03
+22500326,2025-12-03,Orlando Magic,112,San Antonio Spurs,114,0,2025-12-03
+22500327,2025-12-03,Atlanta Hawks,92,LA Clippers,115,0,2025-12-03
+22500328,2025-12-03,New York Knicks,119,Charlotte Hornets,104,1,2025-12-03
+22500329,2025-12-03,Chicago Bulls,103,Brooklyn Nets,113,0,2025-12-03
+22500330,2025-12-03,Houston Rockets,121,Sacramento Kings,95,1,2025-12-03
+22500331,2025-12-03,Milwaukee Bucks,113,Detroit Pistons,109,1,2025-12-03
+22500332,2025-12-03,Dallas Mavericks,118,Miami Heat,108,1,2025-12-03
+22500333,2025-12-04,Philadelphia 76ers,99,Golden State Warriors,98,1,2025-12-04
+22500334,2025-12-04,Washington Wizards,101,Boston Celtics,146,0,2025-12-04
+22500335,2025-12-04,Brooklyn Nets,110,Utah Jazz,123,0,2025-12-04
+22500336,2025-12-04,Toronto Raptors,120,Los Angeles Lakers,123,0,2025-12-04
+22500337,2025-12-04,New Orleans Pelicans,116,Minnesota Timberwolves,125,0,2025-12-04
+22500338,2025-12-05,Boston Celtics,126,Los Angeles Lakers,105,1,2025-12-05
+22500339,2025-12-05,Orlando Magic,106,Miami Heat,105,1,2025-12-05
+22500340,2025-12-05,Atlanta Hawks,133,Denver Nuggets,134,0,2025-12-05
+22500341,2025-12-05,Cleveland Cavaliers,130,San Antonio Spurs,117,1,2025-12-05
+22500342,2025-12-05,Detroit Pistons,122,Portland Trail Blazers,116,1,2025-12-05
+22500343,2025-12-05,New York Knicks,146,Utah Jazz,112,1,2025-12-05
+22500344,2025-12-05,Toronto Raptors,86,Charlotte Hornets,111,0,2025-12-05
+22500345,2025-12-05,Chicago Bulls,105,Indiana Pacers,120,0,2025-12-05
+22500346,2025-12-05,Houston Rockets,117,Phoenix Suns,98,1,2025-12-05
+22500347,2025-12-05,Memphis Grizzlies,107,LA Clippers,98,1,2025-12-05
+22500348,2025-12-05,Milwaukee Bucks,101,Philadelphia 76ers,116,0,2025-12-05
+22500349,2025-12-05,Oklahoma City Thunder,132,Dallas Mavericks,111,1,2025-12-05
+22500350,2025-12-06,Brooklyn Nets,119,New Orleans Pelicans,101,1,2025-12-06
+22500351,2025-12-06,Washington Wizards,116,Atlanta Hawks,131,0,2025-12-06
+22500352,2025-12-06,Cleveland Cavaliers,94,Golden State Warriors,99,0,2025-12-06
+22500353,2025-12-06,Detroit Pistons,124,Milwaukee Bucks,112,1,2025-12-06
+22500354,2025-12-06,Miami Heat,111,Sacramento Kings,127,0,2025-12-06
+22500355,2025-12-06,Minnesota Timberwolves,109,LA Clippers,106,1,2025-12-06
+22500356,2025-12-06,Dallas Mavericks,122,Houston Rockets,109,1,2025-12-06
+22500357,2025-12-07,New York Knicks,106,Orlando Magic,100,1,2025-12-07
+22500358,2025-12-07,Toronto Raptors,113,Boston Celtics,121,0,2025-12-07
+22500359,2025-12-07,Charlotte Hornets,106,Denver Nuggets,115,0,2025-12-07
+22500360,2025-12-07,Memphis Grizzlies,119,Portland Trail Blazers,96,1,2025-12-07
+22500361,2025-12-07,Chicago Bulls,91,Golden State Warriors,123,0,2025-12-07
+22500362,2025-12-07,Philadelphia 76ers,108,Los Angeles Lakers,112,0,2025-12-07
+22500363,2025-12-07,Utah Jazz,101,Oklahoma City Thunder,131,0,2025-12-07
+22500364,2025-12-08,Indiana Pacers,116,Sacramento Kings,105,1,2025-12-08
+22500365,2025-12-08,Minnesota Timberwolves,105,Phoenix Suns,108,0,2025-12-08
+22500366,2025-12-08,New Orleans Pelicans,132,San Antonio Spurs,135,0,2025-12-08
+22501201,2025-12-09,Orlando Magic,117,Miami Heat,108,1,2025-12-09
+22501202,2025-12-09,Toronto Raptors,101,New York Knicks,117,0,2025-12-09
+22501203,2025-12-10,Oklahoma City Thunder,138,Phoenix Suns,89,1,2025-12-10
+22501204,2025-12-10,Los Angeles Lakers,119,San Antonio Spurs,132,0,2025-12-10
+22501205,2025-12-11,Houston Rockets,115,LA Clippers,113,1,2025-12-11
+22501206,2025-12-11,Milwaukee Bucks,116,Boston Celtics,101,1,2025-12-11
+22501207,2025-12-11,New Orleans Pelicans,143,Portland Trail Blazers,120,1,2025-12-11
+22501208,2025-12-11,Sacramento Kings,105,Denver Nuggets,136,0,2025-12-11
+22501209,2025-12-12,Charlotte Hornets,126,Chicago Bulls,129,0,2025-12-12
+22501210,2025-12-12,Detroit Pistons,142,Atlanta Hawks,115,1,2025-12-12
+22501211,2025-12-12,Philadelphia 76ers,115,Indiana Pacers,105,1,2025-12-12
+22501212,2025-12-12,Washington Wizards,126,Cleveland Cavaliers,130,0,2025-12-12
+22501213,2025-12-12,Memphis Grizzlies,126,Utah Jazz,130,0,2025-12-12
+22501214,2025-12-12,Dallas Mavericks,119,Brooklyn Nets,111,1,2025-12-12
+22501215,2025-12-12,Golden State Warriors,120,Minnesota Timberwolves,127,0,2025-12-12
+22501216,2025-12-14,Indiana Pacers,89,Washington Wizards,108,0,2025-12-14
+22501217,2025-12-14,Atlanta Hawks,120,Philadelphia 76ers,117,1,2025-12-14
+22501218,2025-12-14,Cleveland Cavaliers,111,Charlotte Hornets,119,0,2025-12-14
+22501219,2025-12-14,Brooklyn Nets,127,Milwaukee Bucks,82,1,2025-12-14
+22501220,2025-12-14,Minnesota Timberwolves,117,Sacramento Kings,103,1,2025-12-14
+22501221,2025-12-14,Portland Trail Blazers,136,Golden State Warriors,131,1,2025-12-14
+22501223,2025-12-14,Chicago Bulls,104,New Orleans Pelicans,114,0,2025-12-14
+22501228,2025-12-14,Phoenix Suns,114,Los Angeles Lakers,116,0,2025-12-14
+22501222,2025-12-15,Boston Celtics,105,Detroit Pistons,112,0,2025-12-15
+22501224,2025-12-15,Utah Jazz,140,Dallas Mavericks,133,1,2025-12-15
+22501225,2025-12-15,Denver Nuggets,128,Houston Rockets,125,1,2025-12-15
+22501226,2025-12-15,LA Clippers,103,Memphis Grizzlies,121,0,2025-12-15
+22501227,2025-12-15,Miami Heat,96,Toronto Raptors,106,0,2025-12-15
+22500367,2025-12-17,Chicago Bulls,127,Cleveland Cavaliers,111,1,2025-12-17
+22500368,2025-12-17,Minnesota Timberwolves,110,Memphis Grizzlies,116,0,2025-12-17
+22500369,2025-12-18,Oklahoma City Thunder,122,LA Clippers,101,1,2025-12-18
+22500370,2025-12-18,San Antonio Spurs,119,Washington Wizards,94,1,2025-12-18
+22500371,2025-12-18,Charlotte Hornets,133,Atlanta Hawks,126,1,2025-12-18
+22500372,2025-12-18,Indiana Pacers,113,New York Knicks,114,0,2025-12-18
+22500373,2025-12-18,Brooklyn Nets,95,Miami Heat,106,0,2025-12-18
+22500374,2025-12-18,Milwaukee Bucks,105,Toronto Raptors,111,0,2025-12-18
+22500375,2025-12-18,New Orleans Pelicans,133,Houston Rockets,128,1,2025-12-18
+22500376,2025-12-18,Dallas Mavericks,116,Detroit Pistons,114,1,2025-12-18
+22500377,2025-12-18,Denver Nuggets,126,Orlando Magic,115,1,2025-12-18
+22500378,2025-12-18,Phoenix Suns,99,Golden State Warriors,98,1,2025-12-18
+22500379,2025-12-18,Utah Jazz,135,Los Angeles Lakers,143,0,2025-12-18
+22500380,2025-12-18,Portland Trail Blazers,134,Sacramento Kings,133,1,2025-12-18
+22500381,2025-12-19,Boston Celtics,129,Miami Heat,116,1,2025-12-19
+22500382,2025-12-19,New York Knicks,107,Philadelphia 76ers,116,0,2025-12-19
+22500383,2025-12-19,Atlanta Hawks,98,San Antonio Spurs,126,0,2025-12-19
+22500384,2025-12-19,Cleveland Cavaliers,125,Chicago Bulls,136,0,2025-12-19
+22500385,2025-12-19,Minnesota Timberwolves,112,Oklahoma City Thunder,107,1,2025-12-19
+22500386,2025-12-20,Denver Nuggets,101,Houston Rockets,115,0,2025-12-20
+22500387,2025-12-20,Philadelphia 76ers,121,Dallas Mavericks,114,1,2025-12-20
+22500388,2025-12-20,Toronto Raptors,96,Boston Celtics,112,0,2025-12-20
+22500389,2025-12-20,New Orleans Pelicans,128,Indiana Pacers,109,1,2025-12-20
+22500390,2025-12-20,Detroit Pistons,112,Charlotte Hornets,86,1,2025-12-20
+22500391,2025-12-20,Memphis Grizzlies,122,Washington Wizards,130,0,2025-12-20
+22500392,2025-12-20,Golden State Warriors,119,Phoenix Suns,116,1,2025-12-20
+22500393,2025-12-20,Utah Jazz,127,Orlando Magic,128,0,2025-12-20
+22500394,2025-12-20,Sacramento Kings,93,Portland Trail Blazers,98,0,2025-12-20
+22500395,2025-12-20,LA Clippers,103,Los Angeles Lakers,88,1,2025-12-20
+22500396,2025-12-21,Atlanta Hawks,150,Chicago Bulls,152,0,2025-12-21
+22500397,2025-12-21,Brooklyn Nets,96,Toronto Raptors,81,1,2025-12-21
+22500398,2025-12-21,New York Knicks,132,Miami Heat,125,1,2025-12-21
+22500399,2025-12-21,Washington Wizards,113,San Antonio Spurs,124,0,2025-12-21
+22500400,2025-12-21,Minnesota Timberwolves,103,Milwaukee Bucks,100,1,2025-12-21
+22500401,2025-12-21,Sacramento Kings,125,Houston Rockets,124,1,2025-12-21
+22500402,2025-12-22,Cleveland Cavaliers,139,Charlotte Hornets,132,1,2025-12-22
+22500403,2025-12-22,Boston Celtics,103,Indiana Pacers,95,1,2025-12-22
+22500404,2025-12-22,New Orleans Pelicans,119,Dallas Mavericks,113,1,2025-12-22
+22500405,2025-12-22,Denver Nuggets,135,Utah Jazz,112,1,2025-12-22
+22500406,2025-12-22,Oklahoma City Thunder,119,Memphis Grizzlies,103,1,2025-12-22
+22500407,2025-12-22,Golden State Warriors,120,Orlando Magic,97,1,2025-12-22
+22500408,2025-12-22,Portland Trail Blazers,102,Detroit Pistons,110,0,2025-12-22
+22500409,2025-12-23,Charlotte Hornets,126,Washington Wizards,109,1,2025-12-23
+22500410,2025-12-23,Philadelphia 76ers,106,Brooklyn Nets,114,0,2025-12-23
+22500411,2025-12-23,Atlanta Hawks,123,Chicago Bulls,126,0,2025-12-23
+22500412,2025-12-23,Cleveland Cavaliers,141,New Orleans Pelicans,118,1,2025-12-23
+22500413,2025-12-23,Indiana Pacers,94,Milwaukee Bucks,111,0,2025-12-23
+22500414,2025-12-23,Miami Heat,91,Toronto Raptors,112,0,2025-12-23
+22500415,2025-12-23,Dallas Mavericks,131,Denver Nuggets,130,1,2025-12-23
+22500416,2025-12-23,Minnesota Timberwolves,115,New York Knicks,104,1,2025-12-23
+22500417,2025-12-23,San Antonio Spurs,130,Oklahoma City Thunder,110,1,2025-12-23
+22500418,2025-12-23,Phoenix Suns,132,Los Angeles Lakers,108,1,2025-12-23
+22500419,2025-12-23,Utah Jazz,128,Memphis Grizzlies,137,0,2025-12-23
+22500420,2025-12-23,Portland Trail Blazers,106,Orlando Magic,110,0,2025-12-23
+22500421,2025-12-23,Sacramento Kings,127,Detroit Pistons,136,0,2025-12-23
+22500422,2025-12-23,LA Clippers,128,Houston Rockets,108,1,2025-12-23
+22500009,2025-12-25,New York Knicks,126,Cleveland Cavaliers,124,1,2025-12-25
+22500010,2025-12-25,Oklahoma City Thunder,102,San Antonio Spurs,117,0,2025-12-25
+22500011,2025-12-25,Golden State Warriors,126,Dallas Mavericks,116,1,2025-12-25
+22500012,2025-12-25,Los Angeles Lakers,96,Houston Rockets,119,0,2025-12-25
+22500013,2025-12-25,Denver Nuggets,142,Minnesota Timberwolves,138,1,2025-12-25
+22500423,2025-12-26,Atlanta Hawks,111,Miami Heat,126,0,2025-12-26
+22500424,2025-12-26,Orlando Magic,105,Charlotte Hornets,120,0,2025-12-26
+22500425,2025-12-26,Washington Wizards,138,Toronto Raptors,117,1,2025-12-26
+22500426,2025-12-26,Indiana Pacers,122,Boston Celtics,140,0,2025-12-26
+22500427,2025-12-26,Chicago Bulls,109,Philadelphia 76ers,102,1,2025-12-26
+22500428,2025-12-26,Memphis Grizzlies,125,Milwaukee Bucks,104,1,2025-12-26
+22500429,2025-12-26,New Orleans Pelicans,108,Phoenix Suns,115,0,2025-12-26
+22500430,2025-12-26,Utah Jazz,131,Detroit Pistons,129,1,2025-12-26
+22500431,2025-12-26,Portland Trail Blazers,103,LA Clippers,119,0,2025-12-26
+22500432,2025-12-27,Sacramento Kings,113,Dallas Mavericks,107,1,2025-12-27
+22500433,2025-12-27,Orlando Magic,127,Denver Nuggets,126,1,2025-12-27
+22500434,2025-12-27,New Orleans Pelicans,114,Phoenix Suns,123,0,2025-12-27
+22500435,2025-12-27,Atlanta Hawks,125,New York Knicks,128,0,2025-12-27
+22500436,2025-12-27,Miami Heat,142,Indiana Pacers,116,1,2025-12-27
+22500437,2025-12-27,Chicago Bulls,103,Milwaukee Bucks,112,0,2025-12-27
+22500438,2025-12-27,Houston Rockets,117,Cleveland Cavaliers,100,1,2025-12-27
+22500439,2025-12-27,Minnesota Timberwolves,107,Brooklyn Nets,123,0,2025-12-27
+22500440,2025-12-27,San Antonio Spurs,114,Utah Jazz,127,0,2025-12-27
+22500441,2025-12-28,Toronto Raptors,141,Golden State Warriors,127,1,2025-12-28
+22500442,2025-12-28,Oklahoma City Thunder,129,Philadelphia 76ers,104,1,2025-12-28
+22500443,2025-12-28,Washington Wizards,116,Memphis Grizzlies,112,1,2025-12-28
+22500444,2025-12-28,Portland Trail Blazers,114,Boston Celtics,108,1,2025-12-28
+22500445,2025-12-28,LA Clippers,112,Detroit Pistons,99,1,2025-12-28
+22500446,2025-12-28,Los Angeles Lakers,125,Sacramento Kings,101,1,2025-12-28
+22500447,2025-12-29,Charlotte Hornets,113,Milwaukee Bucks,123,0,2025-12-29
+22500448,2025-12-29,Washington Wizards,101,Phoenix Suns,115,0,2025-12-29
+22500449,2025-12-29,Brooklyn Nets,107,Golden State Warriors,120,0,2025-12-29
+22500450,2025-12-29,Miami Heat,147,Denver Nuggets,123,1,2025-12-29
+22500451,2025-12-29,Toronto Raptors,107,Orlando Magic,106,1,2025-12-29
+22500452,2025-12-29,Chicago Bulls,101,Minnesota Timberwolves,136,0,2025-12-29
+22500453,2025-12-29,Houston Rockets,126,Indiana Pacers,119,1,2025-12-29
+22500454,2025-12-29,New Orleans Pelicans,125,New York Knicks,130,0,2025-12-29
+22500455,2025-12-29,Oklahoma City Thunder,140,Atlanta Hawks,129,1,2025-12-29
+22500456,2025-12-29,San Antonio Spurs,101,Cleveland Cavaliers,113,0,2025-12-29
+22500457,2025-12-29,Portland Trail Blazers,125,Dallas Mavericks,122,1,2025-12-29
+22500458,2025-12-30,Memphis Grizzlies,136,Philadelphia 76ers,139,0,2025-12-30
+22500459,2025-12-30,Utah Jazz,119,Boston Celtics,129,0,2025-12-30
+22500460,2025-12-30,Los Angeles Lakers,106,Detroit Pistons,128,0,2025-12-30
+22500461,2025-12-30,LA Clippers,131,Sacramento Kings,90,1,2025-12-30
+22500462,2025-12-31,Charlotte Hornets,125,Golden State Warriors,132,0,2025-12-31
+22500463,2025-12-31,Atlanta Hawks,126,Minnesota Timberwolves,102,1,2025-12-31
+22500464,2025-12-31,Indiana Pacers,110,Orlando Magic,112,0,2025-12-31
+22500465,2025-12-31,Cleveland Cavaliers,129,Phoenix Suns,113,1,2025-12-31
+22500466,2025-12-31,Chicago Bulls,134,New Orleans Pelicans,118,1,2025-12-31
+22500467,2025-12-31,San Antonio Spurs,134,New York Knicks,132,1,2025-12-31
+22500468,2025-12-31,Toronto Raptors,103,Denver Nuggets,106,0,2025-12-31
+22500469,2025-12-31,Milwaukee Bucks,113,Washington Wizards,114,0,2025-12-31
+22500470,2025-12-31,Oklahoma City Thunder,124,Portland Trail Blazers,95,1,2025-12-31
+22500471,2026-01-01,Brooklyn Nets,96,Houston Rockets,120,0,2026-01-01
+22500472,2026-01-01,Detroit Pistons,112,Miami Heat,118,0,2026-01-01
+22500473,2026-01-01,Dallas Mavericks,108,Philadelphia 76ers,123,0,2026-01-01
+22500474,2026-01-01,Sacramento Kings,106,Boston Celtics,120,0,2026-01-01
+22500475,2026-01-01,LA Clippers,118,Utah Jazz,101,1,2026-01-01
+22500476,2026-01-02,Indiana Pacers,113,San Antonio Spurs,123,0,2026-01-02
+22500477,2026-01-02,Washington Wizards,119,Brooklyn Nets,99,1,2026-01-02
+22500478,2026-01-02,Cleveland Cavaliers,113,Denver Nuggets,108,1,2026-01-02
+22500479,2026-01-02,New York Knicks,99,Atlanta Hawks,111,0,2026-01-02
+22500480,2026-01-02,Chicago Bulls,121,Orlando Magic,114,1,2026-01-02
+22500481,2026-01-02,Milwaukee Bucks,122,Charlotte Hornets,121,1,2026-01-02
+22500482,2026-01-02,New Orleans Pelicans,109,Portland Trail Blazers,122,0,2026-01-02
+22500483,2026-01-02,Phoenix Suns,129,Sacramento Kings,102,1,2026-01-02
+22500484,2026-01-02,Golden State Warriors,94,Oklahoma City Thunder,131,0,2026-01-02
+22500485,2026-01-02,Los Angeles Lakers,128,Memphis Grizzlies,121,1,2026-01-02
+22500486,2026-01-03,Miami Heat,115,Minnesota Timberwolves,125,0,2026-01-03
+22500487,2026-01-03,New York Knicks,119,Philadelphia 76ers,130,0,2026-01-03
+22500488,2026-01-03,Toronto Raptors,134,Atlanta Hawks,117,1,2026-01-03
+22500489,2026-01-03,Chicago Bulls,99,Charlotte Hornets,112,0,2026-01-03
+22500490,2026-01-03,San Antonio Spurs,110,Portland Trail Blazers,115,0,2026-01-03
+22500491,2026-01-03,Dallas Mavericks,110,Houston Rockets,104,1,2026-01-03
+22500492,2026-01-03,Golden State Warriors,123,Utah Jazz,114,1,2026-01-03
+22500493,2026-01-03,LA Clippers,115,Boston Celtics,146,0,2026-01-03
+22500494,2026-01-04,Cleveland Cavaliers,110,Detroit Pistons,114,0,2026-01-04
+22500495,2026-01-04,Orlando Magic,135,Indiana Pacers,127,1,2026-01-04
+22500496,2026-01-04,Brooklyn Nets,127,Denver Nuggets,115,1,2026-01-04
+22500497,2026-01-04,Miami Heat,125,New Orleans Pelicans,106,1,2026-01-04
+22500498,2026-01-04,Washington Wizards,115,Minnesota Timberwolves,141,0,2026-01-04
+22500499,2026-01-04,Phoenix Suns,108,Oklahoma City Thunder,105,1,2026-01-04
+22500500,2026-01-04,Sacramento Kings,98,Milwaukee Bucks,115,0,2026-01-04
+22500501,2026-01-04,Los Angeles Lakers,120,Memphis Grizzlies,114,1,2026-01-04
+22500502,2026-01-05,Detroit Pistons,121,New York Knicks,90,1,2026-01-05
+22500503,2026-01-05,Boston Celtics,115,Chicago Bulls,101,1,2026-01-05
+22500504,2026-01-05,Toronto Raptors,118,Atlanta Hawks,100,1,2026-01-05
+22500505,2026-01-05,Houston Rockets,100,Phoenix Suns,97,1,2026-01-05
+22500506,2026-01-05,Oklahoma City Thunder,97,Charlotte Hornets,124,0,2026-01-05
+22500507,2026-01-05,Philadelphia 76ers,124,Denver Nuggets,125,0,2026-01-05
+22500508,2026-01-05,LA Clippers,103,Golden State Warriors,102,1,2026-01-05
+22500509,2026-01-05,Portland Trail Blazers,137,Utah Jazz,117,1,2026-01-05
+22500510,2026-01-06,Indiana Pacers,116,Cleveland Cavaliers,120,0,2026-01-06
+22500511,2026-01-06,Washington Wizards,120,Orlando Magic,112,1,2026-01-06
+22500512,2026-01-06,Memphis Grizzlies,106,San Antonio Spurs,105,1,2026-01-06
+22500513,2026-01-06,Minnesota Timberwolves,122,Miami Heat,94,1,2026-01-06
+22500514,2026-01-06,New Orleans Pelicans,103,Los Angeles Lakers,111,0,2026-01-06
+22500515,2026-01-06,Sacramento Kings,98,Dallas Mavericks,100,0,2026-01-06
+22500516,2026-01-07,Charlotte Hornets,96,Toronto Raptors,97,0,2026-01-07
+22500517,2026-01-07,Detroit Pistons,108,Chicago Bulls,93,1,2026-01-07
+22500518,2026-01-07,Philadelphia 76ers,131,Washington Wizards,110,1,2026-01-07
+22500519,2026-01-07,Atlanta Hawks,117,New Orleans Pelicans,100,1,2026-01-07
+22500520,2026-01-07,Boston Celtics,110,Denver Nuggets,114,0,2026-01-07
+22500521,2026-01-07,Brooklyn Nets,103,Orlando Magic,104,0,2026-01-07
+22500522,2026-01-07,New York Knicks,123,LA Clippers,111,1,2026-01-07
+22500523,2026-01-07,San Antonio Spurs,107,Los Angeles Lakers,91,1,2026-01-07
+22500524,2026-01-07,Memphis Grizzlies,98,Phoenix Suns,117,0,2026-01-07
+22500525,2026-01-07,Oklahoma City Thunder,129,Utah Jazz,125,1,2026-01-07
+22500526,2026-01-07,Golden State Warriors,120,Milwaukee Bucks,113,1,2026-01-07
+22500527,2026-01-07,Portland Trail Blazers,103,Houston Rockets,102,1,2026-01-07
+22500528,2026-01-08,Charlotte Hornets,112,Indiana Pacers,114,0,2026-01-08
+22500530,2026-01-08,Minnesota Timberwolves,131,Cleveland Cavaliers,122,1,2026-01-08
+22500531,2026-01-08,Utah Jazz,116,Dallas Mavericks,114,1,2026-01-08
+22500532,2026-01-09,Boston Celtics,125,Toronto Raptors,117,1,2026-01-09
+22500533,2026-01-09,Orlando Magic,91,Philadelphia 76ers,103,0,2026-01-09
+22500534,2026-01-09,Washington Wizards,107,New Orleans Pelicans,128,0,2026-01-09
+22500535,2026-01-09,Brooklyn Nets,105,LA Clippers,121,0,2026-01-09
+22500536,2026-01-09,Memphis Grizzlies,116,Oklahoma City Thunder,117,0,2026-01-09
+22500537,2026-01-09,Denver Nuggets,87,Atlanta Hawks,110,0,2026-01-09
+22500538,2026-01-09,Phoenix Suns,112,New York Knicks,107,1,2026-01-09
+22500539,2026-01-09,Golden State Warriors,137,Sacramento Kings,103,1,2026-01-09
+22500540,2026-01-09,Portland Trail Blazers,111,Houston Rockets,105,1,2026-01-09
+22500541,2026-01-09,Los Angeles Lakers,101,Milwaukee Bucks,105,0,2026-01-09
+22500542,2026-01-10,Cleveland Cavaliers,146,Minnesota Timberwolves,134,1,2026-01-10
+22500543,2026-01-10,Indiana Pacers,123,Miami Heat,99,1,2026-01-10
+22500544,2026-01-10,Detroit Pistons,92,LA Clippers,98,0,2026-01-10
+22500545,2026-01-10,Boston Celtics,95,San Antonio Spurs,100,0,2026-01-10
+22500546,2026-01-10,Chicago Bulls,125,Dallas Mavericks,107,1,2026-01-10
+22500547,2026-01-10,Utah Jazz,95,Charlotte Hornets,150,0,2026-01-10
+22500548,2026-01-11,Orlando Magic,128,New Orleans Pelicans,118,1,2026-01-11
+22500549,2026-01-11,Memphis Grizzlies,103,Brooklyn Nets,98,1,2026-01-11
+22500550,2026-01-11,Toronto Raptors,116,Philadelphia 76ers,115,1,2026-01-11
+22500551,2026-01-11,Portland Trail Blazers,114,New York Knicks,123,0,2026-01-11
+22500552,2026-01-11,Minnesota Timberwolves,104,San Antonio Spurs,103,1,2026-01-11
+22500553,2026-01-11,Oklahoma City Thunder,124,Miami Heat,112,1,2026-01-11
+22500554,2026-01-11,Denver Nuggets,108,Milwaukee Bucks,104,1,2026-01-11
+22500555,2026-01-11,Phoenix Suns,112,Washington Wizards,93,1,2026-01-11
+22500556,2026-01-11,Golden State Warriors,111,Atlanta Hawks,124,0,2026-01-11
+22500557,2026-01-11,Sacramento Kings,111,Houston Rockets,98,1,2026-01-11
+22500558,2026-01-12,Cleveland Cavaliers,112,Utah Jazz,123,0,2026-01-12
+22500559,2026-01-12,Indiana Pacers,98,Boston Celtics,96,1,2026-01-12
+22500560,2026-01-12,Toronto Raptors,102,Philadelphia 76ers,115,0,2026-01-12
+22500561,2026-01-12,Dallas Mavericks,113,Brooklyn Nets,105,1,2026-01-12
+22500562,2026-01-12,Sacramento Kings,124,Los Angeles Lakers,112,1,2026-01-12
+22500563,2026-01-12,LA Clippers,117,Charlotte Hornets,109,1,2026-01-12
+22500564,2026-01-13,Miami Heat,127,Phoenix Suns,121,1,2026-01-13
+22500565,2026-01-13,Houston Rockets,119,Chicago Bulls,113,1,2026-01-13
+22500566,2026-01-13,Milwaukee Bucks,106,Minnesota Timberwolves,139,0,2026-01-13
+22500567,2026-01-13,New Orleans Pelicans,116,Denver Nuggets,122,0,2026-01-13
+22500568,2026-01-13,Oklahoma City Thunder,119,San Antonio Spurs,98,1,2026-01-13
+22500569,2026-01-13,Los Angeles Lakers,141,Atlanta Hawks,116,1,2026-01-13
+22500570,2026-01-13,Golden State Warriors,119,Portland Trail Blazers,97,1,2026-01-13
+22500571,2026-01-14,Indiana Pacers,101,Toronto Raptors,115,0,2026-01-14
+22500572,2026-01-14,Philadelphia 76ers,107,Cleveland Cavaliers,133,0,2026-01-14
+22500573,2026-01-14,Chicago Bulls,128,Utah Jazz,126,1,2026-01-14
+22500574,2026-01-14,New Orleans Pelicans,116,Brooklyn Nets,113,1,2026-01-14
+22500575,2026-01-14,Dallas Mavericks,109,Denver Nuggets,118,0,2026-01-14
+22500576,2026-01-14,Sacramento Kings,112,New York Knicks,101,1,2026-01-14
+22500577,2026-01-14,LA Clippers,119,Washington Wizards,105,1,2026-01-14
+22500579,2026-01-15,Detroit Pistons,108,Phoenix Suns,105,1,2026-01-15
+22500580,2026-01-15,Miami Heat,114,Boston Celtics,119,0,2026-01-15
+22500581,2026-01-15,Houston Rockets,91,Oklahoma City Thunder,111,0,2026-01-15
+22500582,2026-01-15,San Antonio Spurs,119,Milwaukee Bucks,101,1,2026-01-15
+22500583,2026-01-15,Dallas Mavericks,144,Utah Jazz,122,1,2026-01-15
+22500584,2026-01-15,Golden State Warriors,126,New York Knicks,113,1,2026-01-15
+22500585,2026-01-15,Portland Trail Blazers,117,Atlanta Hawks,101,1,2026-01-15
+22500586,2026-01-15,Los Angeles Lakers,117,Charlotte Hornets,135,0,2026-01-15
+22500587,2026-01-16,Brooklyn Nets,112,Chicago Bulls,109,1,2026-01-16
+22500588,2026-01-16,Indiana Pacers,127,New Orleans Pelicans,119,1,2026-01-16
+22500589,2026-01-16,Philadelphia 76ers,115,Cleveland Cavaliers,117,0,2026-01-16
+22500590,2026-01-16,Toronto Raptors,117,LA Clippers,121,0,2026-01-16
+22500591,2026-01-16,Houston Rockets,110,Minnesota Timberwolves,105,1,2026-01-16
+22500592,2026-01-16,Sacramento Kings,128,Washington Wizards,115,1,2026-01-16
+22500593,2026-01-17,Dallas Mavericks,138,Utah Jazz,120,1,2026-01-17
+22500594,2026-01-17,Atlanta Hawks,106,Boston Celtics,132,0,2026-01-17
+22500595,2026-01-17,Detroit Pistons,121,Indiana Pacers,78,1,2026-01-17
+22500596,2026-01-17,New York Knicks,99,Phoenix Suns,106,0,2026-01-17
+22500597,2026-01-17,Miami Heat,122,Oklahoma City Thunder,120,1,2026-01-17
+22500598,2026-01-17,San Antonio Spurs,126,Minnesota Timberwolves,123,1,2026-01-17
+22500599,2026-01-17,Golden State Warriors,136,Charlotte Hornets,116,1,2026-01-17
+22500600,2026-01-17,Denver Nuggets,121,Washington Wizards,115,1,2026-01-17
+22500601,2026-01-17,Portland Trail Blazers,132,Los Angeles Lakers,116,1,2026-01-17
+22500603,2026-01-18,Chicago Bulls,124,Brooklyn Nets,102,1,2026-01-18
+22500604,2026-01-18,Houston Rockets,119,New Orleans Pelicans,110,1,2026-01-18
+22500605,2026-01-18,Denver Nuggets,87,Charlotte Hornets,110,0,2026-01-18
+22500606,2026-01-18,Sacramento Kings,110,Portland Trail Blazers,117,0,2026-01-18
+22500607,2026-01-18,Los Angeles Lakers,110,Toronto Raptors,93,1,2026-01-18
+22500014,2026-01-19,Atlanta Hawks,110,Milwaukee Bucks,112,0,2026-01-19
+22500015,2026-01-19,Cleveland Cavaliers,104,Oklahoma City Thunder,136,0,2026-01-19
+22500016,2026-01-19,New York Knicks,97,Dallas Mavericks,114,0,2026-01-19
+22500017,2026-01-19,Detroit Pistons,104,Boston Celtics,103,1,2026-01-19
+22500608,2026-01-19,Washington Wizards,106,LA Clippers,110,0,2026-01-19
+22500609,2026-01-19,Philadelphia 76ers,113,Indiana Pacers,104,1,2026-01-19
+22500610,2026-01-19,Brooklyn Nets,117,Phoenix Suns,126,0,2026-01-19
+22500611,2026-01-19,San Antonio Spurs,123,Utah Jazz,110,1,2026-01-19
+22500612,2026-01-19,Golden State Warriors,135,Miami Heat,112,1,2026-01-19
+22500613,2026-01-20,Philadelphia 76ers,110,Phoenix Suns,116,0,2026-01-20
+22500614,2026-01-20,Chicago Bulls,138,LA Clippers,110,1,2026-01-20
+22500615,2026-01-20,Houston Rockets,111,San Antonio Spurs,106,1,2026-01-20
+22500616,2026-01-20,Utah Jazz,127,Minnesota Timberwolves,122,1,2026-01-20
+22500617,2026-01-20,Denver Nuggets,107,Los Angeles Lakers,115,0,2026-01-20
+22500618,2026-01-20,Golden State Warriors,127,Toronto Raptors,145,0,2026-01-20
+22500619,2026-01-20,Sacramento Kings,117,Miami Heat,130,0,2026-01-20
+22500620,2026-01-21,Charlotte Hornets,87,Cleveland Cavaliers,94,0,2026-01-21
+22500621,2026-01-21,Boston Celtics,119,Indiana Pacers,104,1,2026-01-21
+22500622,2026-01-21,New York Knicks,120,Brooklyn Nets,66,1,2026-01-21
+22500623,2026-01-21,Memphis Grizzlies,122,Atlanta Hawks,124,0,2026-01-21
+22500624,2026-01-21,New Orleans Pelicans,104,Detroit Pistons,112,0,2026-01-21
+22500625,2026-01-21,Milwaukee Bucks,102,Oklahoma City Thunder,122,0,2026-01-21
+22500626,2026-01-21,Sacramento Kings,109,Toronto Raptors,122,0,2026-01-21
+22500627,2026-01-22,Orlando Magic,97,Charlotte Hornets,124,0,2026-01-22
+22500628,2026-01-22,Philadelphia 76ers,128,Houston Rockets,122,1,2026-01-22
+22500629,2026-01-22,Washington Wizards,97,Denver Nuggets,107,0,2026-01-22
+22500630,2026-01-22,Dallas Mavericks,123,Golden State Warriors,115,1,2026-01-22
+22500631,2026-01-22,Minnesota Timberwolves,115,Chicago Bulls,120,0,2026-01-22
+22500632,2026-01-22,Utah Jazz,109,San Antonio Spurs,126,0,2026-01-22
+22500633,2026-01-22,LA Clippers,112,Los Angeles Lakers,104,1,2026-01-22
+22500634,2026-01-22,Portland Trail Blazers,127,Miami Heat,110,1,2026-01-22
+22500635,2026-01-23,Detroit Pistons,104,Houston Rockets,111,0,2026-01-23
+22500636,2026-01-23,Atlanta Hawks,110,Phoenix Suns,103,1,2026-01-23
+22500637,2026-01-23,Brooklyn Nets,126,Boston Celtics,130,0,2026-01-23
+22500638,2026-01-23,Cleveland Cavaliers,123,Sacramento Kings,118,1,2026-01-23
+22500639,2026-01-23,Memphis Grizzlies,127,New Orleans Pelicans,133,0,2026-01-23
+22500640,2026-01-23,Milwaukee Bucks,100,Denver Nuggets,102,0,2026-01-23
+22500641,2026-01-23,Oklahoma City Thunder,114,Indiana Pacers,117,0,2026-01-23
+22500642,2026-01-23,Portland Trail Blazers,98,Toronto Raptors,110,0,2026-01-23
+22500643,2026-01-24,Philadelphia 76ers,109,New York Knicks,112,0,2026-01-24
+22500645,2026-01-24,Charlotte Hornets,119,Washington Wizards,115,1,2026-01-24
+22500646,2026-01-24,Orlando Magic,105,Cleveland Cavaliers,119,0,2026-01-24
+22500647,2026-01-24,Chicago Bulls,114,Boston Celtics,111,1,2026-01-24
+22500648,2026-01-24,Dallas Mavericks,110,Los Angeles Lakers,116,0,2026-01-24
+22500649,2026-01-24,Utah Jazz,116,Miami Heat,147,0,2026-01-24
+22500644,2026-01-25,Minnesota Timberwolves,85,Golden State Warriors,111,0,2026-01-25
+22500650,2026-01-25,Detroit Pistons,139,Sacramento Kings,116,1,2026-01-25
+22500653,2026-01-25,Oklahoma City Thunder,101,Toronto Raptors,103,0,2026-01-25
+22500654,2026-01-25,San Antonio Spurs,95,New Orleans Pelicans,104,0,2026-01-25
+22500655,2026-01-25,Phoenix Suns,102,Miami Heat,111,0,2026-01-25
+22500656,2026-01-25,LA Clippers,126,Brooklyn Nets,89,1,2026-01-25
+22500657,2026-01-26,Charlotte Hornets,130,Philadelphia 76ers,93,1,2026-01-26
+22500658,2026-01-26,Cleveland Cavaliers,114,Orlando Magic,98,1,2026-01-26
+22500659,2026-01-26,Atlanta Hawks,132,Indiana Pacers,116,1,2026-01-26
+22500660,2026-01-26,Boston Celtics,102,Portland Trail Blazers,94,1,2026-01-26
+22500661,2026-01-26,Chicago Bulls,118,Los Angeles Lakers,129,0,2026-01-26
+22500662,2026-01-26,Houston Rockets,108,Memphis Grizzlies,99,1,2026-01-26
+22500663,2026-01-26,Minnesota Timberwolves,108,Golden State Warriors,83,1,2026-01-26
+22500664,2026-01-27,Washington Wizards,115,Portland Trail Blazers,111,1,2026-01-27
+22500665,2026-01-27,New York Knicks,103,Sacramento Kings,87,1,2026-01-27
+22500666,2026-01-27,Philadelphia 76ers,139,Milwaukee Bucks,122,1,2026-01-27
+22500667,2026-01-27,Oklahoma City Thunder,104,New Orleans Pelicans,95,1,2026-01-27
+22500668,2026-01-27,Denver Nuggets,107,Detroit Pistons,109,0,2026-01-27
+22500669,2026-01-27,Phoenix Suns,106,Brooklyn Nets,102,1,2026-01-27
+22500670,2026-01-27,Utah Jazz,103,LA Clippers,115,0,2026-01-27
+22500671,2026-01-28,Cleveland Cavaliers,129,Los Angeles Lakers,99,1,2026-01-28
+22500672,2026-01-28,Indiana Pacers,113,Chicago Bulls,110,1,2026-01-28
+22500673,2026-01-28,Boston Celtics,106,Atlanta Hawks,117,0,2026-01-28
+22500674,2026-01-28,Miami Heat,124,Orlando Magic,133,0,2026-01-28
+22500675,2026-01-28,Toronto Raptors,92,New York Knicks,119,0,2026-01-28
+22500676,2026-01-28,Memphis Grizzlies,97,Charlotte Hornets,112,0,2026-01-28
+22500677,2026-01-28,Dallas Mavericks,105,Minnesota Timberwolves,118,0,2026-01-28
+22500678,2026-01-28,Utah Jazz,124,Golden State Warriors,140,0,2026-01-28
+22500679,2026-01-28,Houston Rockets,99,San Antonio Spurs,111,0,2026-01-28
+22500529,2026-01-29,Chicago Bulls,113,Miami Heat,116,0,2026-01-29
+22500680,2026-01-29,Philadelphia 76ers,113,Sacramento Kings,111,1,2026-01-29
+22500681,2026-01-29,Washington Wizards,109,Milwaukee Bucks,99,1,2026-01-29
+22500682,2026-01-29,Atlanta Hawks,86,Houston Rockets,104,0,2026-01-29
+22500683,2026-01-29,Dallas Mavericks,121,Charlotte Hornets,123,0,2026-01-29
+22500684,2026-01-29,Denver Nuggets,107,Brooklyn Nets,103,1,2026-01-29
+22500685,2026-01-29,Phoenix Suns,114,Detroit Pistons,96,1,2026-01-29
+22500686,2026-01-29,Minnesota Timberwolves,123,Oklahoma City Thunder,111,1,2026-01-29
+22500687,2026-01-30,Orlando Magic,130,Toronto Raptors,120,1,2026-01-30
+22500688,2026-01-30,Washington Wizards,111,Los Angeles Lakers,142,0,2026-01-30
+22500689,2026-01-30,Boston Celtics,112,Sacramento Kings,93,1,2026-01-30
+22500690,2026-01-30,New York Knicks,127,Portland Trail Blazers,97,1,2026-01-30
+22500691,2026-01-30,New Orleans Pelicans,114,Memphis Grizzlies,106,1,2026-01-30
+22500693,2026-01-30,Phoenix Suns,126,Cleveland Cavaliers,113,1,2026-01-30
+22500694,2026-01-30,Utah Jazz,99,Brooklyn Nets,109,0,2026-01-30
+22500695,2026-01-30,Denver Nuggets,122,LA Clippers,109,1,2026-01-30
+22500696,2026-01-30,Golden State Warriors,124,Detroit Pistons,131,0,2026-01-30
+22500692,2026-01-31,Miami Heat,118,Chicago Bulls,125,0,2026-01-31
+22500697,2026-01-31,Charlotte Hornets,111,San Antonio Spurs,106,1,2026-01-31
+22500698,2026-01-31,Indiana Pacers,129,Atlanta Hawks,124,1,2026-01-31
+22500699,2026-01-31,Philadelphia 76ers,124,New Orleans Pelicans,114,1,2026-01-31
+22500700,2026-01-31,Memphis Grizzlies,114,Minnesota Timberwolves,131,0,2026-01-31
+22500701,2026-01-31,Houston Rockets,111,Dallas Mavericks,107,1,2026-01-31
+22500702,2026-02-01,Boston Celtics,107,Milwaukee Bucks,79,1,2026-02-01
+22500703,2026-02-01,San Antonio Spurs,112,Orlando Magic,103,1,2026-02-01
+22500704,2026-02-01,Detroit Pistons,130,Brooklyn Nets,77,1,2026-02-01
+22500705,2026-02-01,Miami Heat,134,Chicago Bulls,91,1,2026-02-01
+22500706,2026-02-01,Toronto Raptors,107,Utah Jazz,100,1,2026-02-01
+22500707,2026-02-01,Washington Wizards,116,Sacramento Kings,112,1,2026-02-01
+22500708,2026-02-01,New York Knicks,112,Los Angeles Lakers,100,1,2026-02-01
+22500709,2026-02-01,Phoenix Suns,93,LA Clippers,117,0,2026-02-01
+22500710,2026-02-01,Portland Trail Blazers,111,Cleveland Cavaliers,130,0,2026-02-01
+22500711,2026-02-01,Denver Nuggets,111,Oklahoma City Thunder,121,0,2026-02-01
+22500712,2026-02-02,Charlotte Hornets,102,New Orleans Pelicans,95,1,2026-02-02
+22500713,2026-02-02,Indiana Pacers,114,Houston Rockets,118,0,2026-02-02
+22500714,2026-02-02,Memphis Grizzlies,137,Minnesota Timberwolves,128,1,2026-02-02
+22500715,2026-02-02,LA Clippers,113,Philadelphia 76ers,128,0,2026-02-02
+22500716,2026-02-03,Detroit Pistons,124,Denver Nuggets,121,1,2026-02-03
+22500717,2026-02-03,Indiana Pacers,122,Utah Jazz,131,0,2026-02-03
+22500718,2026-02-03,Washington Wizards,101,New York Knicks,132,0,2026-02-03
+22500719,2026-02-03,Brooklyn Nets,109,Los Angeles Lakers,125,0,2026-02-03
+22500720,2026-02-03,Miami Heat,115,Atlanta Hawks,127,0,2026-02-03
+22500721,2026-02-03,Dallas Mavericks,100,Boston Celtics,110,0,2026-02-03
+22500722,2026-02-03,Milwaukee Bucks,131,Chicago Bulls,115,1,2026-02-03
+22500723,2026-02-03,Oklahoma City Thunder,128,Orlando Magic,92,1,2026-02-03
+22500724,2026-02-03,Golden State Warriors,94,Philadelphia 76ers,113,0,2026-02-03
+22500725,2026-02-03,Portland Trail Blazers,125,Phoenix Suns,130,0,2026-02-03
+22500726,2026-02-04,New York Knicks,134,Denver Nuggets,127,1,2026-02-04
+22500727,2026-02-04,Toronto Raptors,126,Minnesota Timberwolves,128,0,2026-02-04
+22500728,2026-02-04,Houston Rockets,93,Boston Celtics,114,0,2026-02-04
+22500729,2026-02-04,Milwaukee Bucks,141,New Orleans Pelicans,137,1,2026-02-04
+22500730,2026-02-04,San Antonio Spurs,116,Oklahoma City Thunder,106,1,2026-02-04
+22500731,2026-02-04,Sacramento Kings,125,Memphis Grizzlies,129,0,2026-02-04
+22500732,2026-02-04,LA Clippers,91,Cleveland Cavaliers,124,0,2026-02-04
+22500733,2026-02-05,Detroit Pistons,117,Washington Wizards,126,0,2026-02-05
+22500734,2026-02-05,Orlando Magic,118,Brooklyn Nets,98,1,2026-02-05
+22500735,2026-02-05,Atlanta Hawks,121,Utah Jazz,119,1,2026-02-05
+22500736,2026-02-05,Toronto Raptors,123,Chicago Bulls,107,1,2026-02-05
+22500737,2026-02-05,Houston Rockets,99,Charlotte Hornets,109,0,2026-02-05
+22500738,2026-02-05,Dallas Mavericks,123,San Antonio Spurs,135,0,2026-02-05
+22500739,2026-02-05,Phoenix Suns,97,Golden State Warriors,101,0,2026-02-05
+22500740,2026-02-05,Los Angeles Lakers,119,Philadelphia 76ers,115,1,2026-02-05
+22500741,2026-02-06,Boston Celtics,98,Miami Heat,96,1,2026-02-06
+22500742,2026-02-06,Detroit Pistons,118,New York Knicks,80,1,2026-02-06
+22500743,2026-02-06,Milwaukee Bucks,105,Indiana Pacers,99,1,2026-02-06
+22500744,2026-02-06,Minnesota Timberwolves,115,New Orleans Pelicans,119,0,2026-02-06
+22500745,2026-02-06,Portland Trail Blazers,135,Memphis Grizzlies,115,1,2026-02-06
+22500746,2026-02-06,Sacramento Kings,111,LA Clippers,114,0,2026-02-06
+22500747,2026-02-07,Brooklyn Nets,127,Washington Wizards,113,1,2026-02-07
+22500748,2026-02-07,Oklahoma City Thunder,106,Houston Rockets,112,0,2026-02-07
+22500749,2026-02-07,San Antonio Spurs,138,Dallas Mavericks,125,1,2026-02-07
+22500750,2026-02-07,Orlando Magic,120,Utah Jazz,117,1,2026-02-07
+22500751,2026-02-07,Atlanta Hawks,119,Charlotte Hornets,126,0,2026-02-07
+22500752,2026-02-07,Chicago Bulls,120,Denver Nuggets,136,0,2026-02-07
+22500753,2026-02-07,Los Angeles Lakers,105,Golden State Warriors,99,1,2026-02-07
+22500754,2026-02-07,Phoenix Suns,103,Philadelphia 76ers,109,0,2026-02-07
+22500755,2026-02-07,Portland Trail Blazers,122,Memphis Grizzlies,115,1,2026-02-07
+22500756,2026-02-07,Sacramento Kings,126,Cleveland Cavaliers,132,0,2026-02-07
+22500757,2026-02-08,Boston Celtics,89,New York Knicks,111,0,2026-02-08
+22500758,2026-02-08,Washington Wizards,101,Miami Heat,132,0,2026-02-08
+22500759,2026-02-08,Toronto Raptors,122,Indiana Pacers,104,1,2026-02-08
+22500760,2026-02-08,Minnesota Timberwolves,96,LA Clippers,115,0,2026-02-08
+22500761,2026-02-09,Charlotte Hornets,104,Detroit Pistons,110,0,2026-02-09
+22500762,2026-02-09,Brooklyn Nets,123,Chicago Bulls,115,1,2026-02-09
+22500763,2026-02-09,Miami Heat,111,Utah Jazz,115,0,2026-02-09
+22500764,2026-02-09,Orlando Magic,118,Milwaukee Bucks,99,1,2026-02-09
+22500765,2026-02-09,Minnesota Timberwolves,138,Atlanta Hawks,116,1,2026-02-09
+22500766,2026-02-09,New Orleans Pelicans,120,Sacramento Kings,94,1,2026-02-09
+22500767,2026-02-09,Denver Nuggets,117,Cleveland Cavaliers,119,0,2026-02-09
+22500768,2026-02-09,Golden State Warriors,114,Memphis Grizzlies,113,1,2026-02-09
+22500769,2026-02-09,Los Angeles Lakers,110,Oklahoma City Thunder,119,0,2026-02-09
+22500770,2026-02-09,Portland Trail Blazers,135,Philadelphia 76ers,118,1,2026-02-09
+22500771,2026-02-10,New York Knicks,134,Indiana Pacers,137,0,2026-02-10
+22500772,2026-02-10,Houston Rockets,102,LA Clippers,95,1,2026-02-10
+22500773,2026-02-10,Phoenix Suns,120,Dallas Mavericks,111,1,2026-02-10
+22500774,2026-02-10,Los Angeles Lakers,108,San Antonio Spurs,136,0,2026-02-10
+22500775,2026-02-11,Charlotte Hornets,110,Atlanta Hawks,107,1,2026-02-11
+22500776,2026-02-11,Cleveland Cavaliers,138,Washington Wizards,113,1,2026-02-11
+22500777,2026-02-11,Orlando Magic,108,Milwaukee Bucks,116,0,2026-02-11
+22500778,2026-02-11,Boston Celtics,124,Chicago Bulls,105,1,2026-02-11
+22500779,2026-02-11,Brooklyn Nets,110,Indiana Pacers,115,0,2026-02-11
+22500780,2026-02-11,Philadelphia 76ers,89,New York Knicks,138,0,2026-02-11
+22500781,2026-02-11,Toronto Raptors,95,Detroit Pistons,113,0,2026-02-11
+22500782,2026-02-11,Houston Rockets,102,LA Clippers,105,0,2026-02-11
+22500783,2026-02-11,Minnesota Timberwolves,133,Portland Trail Blazers,109,1,2026-02-11
+22500784,2026-02-11,New Orleans Pelicans,111,Miami Heat,123,0,2026-02-11
+22500785,2026-02-11,Phoenix Suns,109,Oklahoma City Thunder,136,0,2026-02-11
+22500786,2026-02-11,Utah Jazz,121,Sacramento Kings,93,1,2026-02-11
+22500787,2026-02-11,Denver Nuggets,122,Memphis Grizzlies,116,1,2026-02-11
+22500788,2026-02-11,Golden State Warriors,113,San Antonio Spurs,126,0,2026-02-11
+22500789,2026-02-12,Oklahoma City Thunder,93,Milwaukee Bucks,110,0,2026-02-12
+22500790,2026-02-12,Utah Jazz,119,Portland Trail Blazers,135,0,2026-02-12
+22500791,2026-02-12,Los Angeles Lakers,124,Dallas Mavericks,104,1,2026-02-12
+22500792,2026-02-19,Charlotte Hornets,101,Houston Rockets,105,0,2026-02-19
+22500793,2026-02-19,Cleveland Cavaliers,112,Brooklyn Nets,84,1,2026-02-19
+22500794,2026-02-19,Philadelphia 76ers,107,Atlanta Hawks,117,0,2026-02-19
+22500795,2026-02-19,Washington Wizards,112,Indiana Pacers,105,1,2026-02-19
+22500796,2026-02-19,New York Knicks,111,Detroit Pistons,126,0,2026-02-19
+22500797,2026-02-19,Chicago Bulls,101,Toronto Raptors,110,0,2026-02-19
+22500798,2026-02-19,San Antonio Spurs,121,Phoenix Suns,94,1,2026-02-19
+22500799,2026-02-19,Golden State Warriors,110,Boston Celtics,121,0,2026-02-19
+22500800,2026-02-19,Sacramento Kings,94,Orlando Magic,131,0,2026-02-19
+22500801,2026-02-19,LA Clippers,115,Denver Nuggets,114,1,2026-02-19
+22500802,2026-02-20,Charlotte Hornets,113,Cleveland Cavaliers,118,0,2026-02-20
+22500803,2026-02-20,Washington Wizards,131,Indiana Pacers,118,1,2026-02-20
+22500804,2026-02-20,Memphis Grizzlies,123,Utah Jazz,114,1,2026-02-20
+22500805,2026-02-20,Atlanta Hawks,97,Miami Heat,128,0,2026-02-20
+22500806,2026-02-20,Minnesota Timberwolves,122,Dallas Mavericks,111,1,2026-02-20
+22500807,2026-02-20,New Orleans Pelicans,118,Milwaukee Bucks,139,0,2026-02-20
+22500808,2026-02-20,Oklahoma City Thunder,105,Brooklyn Nets,86,1,2026-02-20
+22500809,2026-02-20,Los Angeles Lakers,125,LA Clippers,122,1,2026-02-20
+22500810,2026-02-20,Portland Trail Blazers,103,Denver Nuggets,157,0,2026-02-20
+22500811,2026-02-21,Phoenix Suns,113,Orlando Magic,110,1,2026-02-21
+22500812,2026-02-21,New Orleans Pelicans,126,Philadelphia 76ers,111,1,2026-02-21
+22500813,2026-02-21,Miami Heat,136,Memphis Grizzlies,120,1,2026-02-21
+22500814,2026-02-21,Chicago Bulls,110,Detroit Pistons,126,0,2026-02-21
+22500815,2026-02-21,San Antonio Spurs,139,Sacramento Kings,122,1,2026-02-21
+22500816,2026-02-21,New York Knicks,108,Houston Rockets,106,1,2026-02-21
+22500817,2026-02-22,Oklahoma City Thunder,121,Cleveland Cavaliers,113,1,2026-02-22
+22500818,2026-02-22,Atlanta Hawks,115,Brooklyn Nets,104,1,2026-02-22
+22500819,2026-02-22,Milwaukee Bucks,94,Toronto Raptors,122,0,2026-02-22
+22500820,2026-02-22,Golden State Warriors,128,Denver Nuggets,117,1,2026-02-22
+22500821,2026-02-22,Indiana Pacers,130,Dallas Mavericks,134,0,2026-02-22
+22500822,2026-02-22,Washington Wizards,112,Charlotte Hornets,129,0,2026-02-22
+22500823,2026-02-22,Los Angeles Lakers,89,Boston Celtics,111,0,2026-02-22
+22500824,2026-02-22,Minnesota Timberwolves,108,Philadelphia 76ers,135,0,2026-02-22
+22500825,2026-02-22,Chicago Bulls,99,New York Knicks,105,0,2026-02-22
+22500826,2026-02-22,Phoenix Suns,77,Portland Trail Blazers,92,0,2026-02-22
+22500827,2026-02-22,LA Clippers,109,Orlando Magic,111,0,2026-02-22
+22500828,2026-02-23,Detroit Pistons,103,San Antonio Spurs,114,0,2026-02-23
+22500829,2026-02-23,Memphis Grizzlies,114,Sacramento Kings,123,0,2026-02-23
+22500830,2026-02-23,Houston Rockets,125,Utah Jazz,105,1,2026-02-23
+22500831,2026-02-24,Indiana Pacers,114,Philadelphia 76ers,135,0,2026-02-24
+22500832,2026-02-24,Atlanta Hawks,119,Washington Wizards,98,1,2026-02-24
+22500833,2026-02-24,Brooklyn Nets,114,Dallas Mavericks,123,0,2026-02-24
+22500834,2026-02-24,Toronto Raptors,107,Oklahoma City Thunder,116,0,2026-02-24
+22500835,2026-02-24,Cleveland Cavaliers,109,New York Knicks,94,1,2026-02-24
+22500836,2026-02-24,Chicago Bulls,99,Charlotte Hornets,131,0,2026-02-24
+22500837,2026-02-24,Milwaukee Bucks,128,Miami Heat,117,1,2026-02-24
+22500838,2026-02-24,New Orleans Pelicans,113,Golden State Warriors,109,1,2026-02-24
+22500839,2026-02-24,Phoenix Suns,81,Boston Celtics,97,0,2026-02-24
+22500840,2026-02-24,Los Angeles Lakers,109,Orlando Magic,110,0,2026-02-24
+22500841,2026-02-24,Portland Trail Blazers,121,Minnesota Timberwolves,124,0,2026-02-24
+22500842,2026-02-25,Detroit Pistons,124,Oklahoma City Thunder,116,1,2026-02-25
+22500843,2026-02-25,Toronto Raptors,107,San Antonio Spurs,110,0,2026-02-25
+22500844,2026-02-25,Memphis Grizzlies,112,Golden State Warriors,133,0,2026-02-25
+22500845,2026-02-25,Houston Rockets,128,Sacramento Kings,97,1,2026-02-25
+22500846,2026-02-25,Milwaukee Bucks,118,Cleveland Cavaliers,116,1,2026-02-25
+22500847,2026-02-25,Denver Nuggets,103,Boston Celtics,84,1,2026-02-25
+22500848,2026-02-26,Indiana Pacers,109,Charlotte Hornets,133,0,2026-02-26
+22500849,2026-02-26,Philadelphia 76ers,124,Miami Heat,117,1,2026-02-26
+22500850,2026-02-26,Atlanta Hawks,126,Washington Wizards,96,1,2026-02-26
+22500851,2026-02-26,Brooklyn Nets,110,San Antonio Spurs,126,0,2026-02-26
+22500852,2026-02-26,Orlando Magic,108,Houston Rockets,113,0,2026-02-26
+22500853,2026-02-26,Chicago Bulls,112,Portland Trail Blazers,121,0,2026-02-26
+22500854,2026-02-26,Dallas Mavericks,121,Sacramento Kings,130,0,2026-02-26
+22500855,2026-02-26,Phoenix Suns,113,Los Angeles Lakers,110,1,2026-02-26
+22500856,2026-02-26,Utah Jazz,118,New Orleans Pelicans,129,0,2026-02-26
+22500857,2026-02-26,LA Clippers,88,Minnesota Timberwolves,94,0,2026-02-26
+22500858,2026-02-27,Detroit Pistons,122,Cleveland Cavaliers,119,1,2026-02-27
+22500859,2026-02-27,Boston Celtics,148,Brooklyn Nets,111,1,2026-02-27
+22500860,2026-02-27,Milwaukee Bucks,98,New York Knicks,127,0,2026-02-27
+22500861,2026-02-27,Dallas Mavericks,105,Memphis Grizzlies,124,0,2026-02-27
+22500862,2026-02-27,Oklahoma City Thunder,127,Denver Nuggets,121,1,2026-02-27
+22500863,2026-02-28,Charlotte Hornets,109,Portland Trail Blazers,93,1,2026-02-28
+22500864,2026-02-28,Miami Heat,115,Houston Rockets,105,1,2026-02-28
+22500865,2026-02-28,Washington Wizards,125,Toronto Raptors,134,0,2026-02-28
+22500866,2026-02-28,Golden State Warriors,101,Los Angeles Lakers,129,0,2026-02-28
+22500867,2026-02-28,Utah Jazz,105,New Orleans Pelicans,115,0,2026-02-28
+22500868,2026-03-01,New York Knicks,114,San Antonio Spurs,89,1,2026-03-01
+22500869,2026-03-01,Brooklyn Nets,102,Cleveland Cavaliers,106,0,2026-03-01
+22500870,2026-03-01,Chicago Bulls,120,Milwaukee Bucks,97,1,2026-03-01
+22500871,2026-03-01,Denver Nuggets,108,Minnesota Timberwolves,117,0,2026-03-01
+22500872,2026-03-01,Indiana Pacers,106,Memphis Grizzlies,125,0,2026-03-01
+22500873,2026-03-01,Atlanta Hawks,135,Portland Trail Blazers,101,1,2026-03-01
+22500874,2026-03-01,Boston Celtics,114,Philadelphia 76ers,98,1,2026-03-01
+22500875,2026-03-01,Orlando Magic,92,Detroit Pistons,106,0,2026-03-01
+22500876,2026-03-01,Dallas Mavericks,87,Oklahoma City Thunder,100,0,2026-03-01
+22500877,2026-03-01,LA Clippers,137,New Orleans Pelicans,117,1,2026-03-01
+22500878,2026-03-01,Los Angeles Lakers,128,Sacramento Kings,104,1,2026-03-01
+22500879,2026-03-02,Washington Wizards,118,Houston Rockets,123,0,2026-03-02
+22500880,2026-03-02,Milwaukee Bucks,81,Boston Celtics,108,0,2026-03-02
+22500881,2026-03-02,Utah Jazz,125,Denver Nuggets,128,0,2026-03-02
+22500882,2026-03-02,Golden State Warriors,101,LA Clippers,114,0,2026-03-02
+22500883,2026-03-03,Charlotte Hornets,117,Dallas Mavericks,90,1,2026-03-03
+22500884,2026-03-03,Cleveland Cavaliers,113,Detroit Pistons,109,1,2026-03-03
+22500885,2026-03-03,Orlando Magic,126,Washington Wizards,109,1,2026-03-03
+22500886,2026-03-03,Miami Heat,124,Brooklyn Nets,98,1,2026-03-03
+22500887,2026-03-03,Toronto Raptors,95,New York Knicks,111,0,2026-03-03
+22500888,2026-03-03,Philadelphia 76ers,91,San Antonio Spurs,131,0,2026-03-03
+22500889,2026-03-03,Chicago Bulls,108,Oklahoma City Thunder,116,0,2026-03-03
+22500890,2026-03-03,Minnesota Timberwolves,117,Memphis Grizzlies,110,1,2026-03-03
+22500891,2026-03-03,Los Angeles Lakers,110,New Orleans Pelicans,101,1,2026-03-03
+22500892,2026-03-03,Sacramento Kings,103,Phoenix Suns,114,0,2026-03-03
+22500893,2026-03-04,New York Knicks,100,Oklahoma City Thunder,103,0,2026-03-04
+22500894,2026-03-04,Boston Celtics,89,Charlotte Hornets,118,0,2026-03-04
+22500895,2026-03-04,Philadelphia 76ers,106,Utah Jazz,102,1,2026-03-04
+22500896,2026-03-04,Memphis Grizzlies,114,Portland Trail Blazers,122,0,2026-03-04
+22500897,2026-03-04,Milwaukee Bucks,113,Atlanta Hawks,131,0,2026-03-04
+22500898,2026-03-04,LA Clippers,130,Indiana Pacers,107,1,2026-03-04
+22500899,2026-03-05,Orlando Magic,115,Dallas Mavericks,114,1,2026-03-05
+22500900,2026-03-05,Washington Wizards,112,Utah Jazz,122,0,2026-03-05
+22500901,2026-03-05,Miami Heat,126,Brooklyn Nets,110,1,2026-03-05
+22500902,2026-03-05,Houston Rockets,113,Golden State Warriors,115,0,2026-03-05
+22500903,2026-03-05,Minnesota Timberwolves,115,Toronto Raptors,107,1,2026-03-05
+22500904,2026-03-05,San Antonio Spurs,121,Detroit Pistons,106,1,2026-03-05
+22500905,2026-03-05,Phoenix Suns,103,Chicago Bulls,105,0,2026-03-05
+22500906,2026-03-05,Denver Nuggets,120,Los Angeles Lakers,113,1,2026-03-05
+22500907,2026-03-05,Sacramento Kings,123,New Orleans Pelicans,133,0,2026-03-05
+22500908,2026-03-06,Boston Celtics,120,Dallas Mavericks,100,1,2026-03-06
+22500909,2026-03-06,Charlotte Hornets,120,Miami Heat,128,0,2026-03-06
+22500910,2026-03-06,Houston Rockets,106,Portland Trail Blazers,99,1,2026-03-06
+22500911,2026-03-06,Denver Nuggets,103,New York Knicks,142,0,2026-03-06
+22500912,2026-03-06,Phoenix Suns,118,New Orleans Pelicans,116,1,2026-03-06
+22500913,2026-03-06,San Antonio Spurs,116,LA Clippers,112,1,2026-03-06
+22500914,2026-03-06,Los Angeles Lakers,128,Indiana Pacers,117,1,2026-03-06
+22500915,2026-03-07,Minnesota Timberwolves,92,Orlando Magic,119,0,2026-03-07
+22500916,2026-03-07,Detroit Pistons,105,Brooklyn Nets,107,0,2026-03-07
+22500917,2026-03-07,Atlanta Hawks,125,Philadelphia 76ers,116,1,2026-03-07
+22500918,2026-03-07,Memphis Grizzlies,120,LA Clippers,123,0,2026-03-07
+22500919,2026-03-07,Milwaukee Bucks,113,Utah Jazz,99,1,2026-03-07
+22500920,2026-03-07,Oklahoma City Thunder,104,Golden State Warriors,97,1,2026-03-07
+22500921,2026-03-08,Cleveland Cavaliers,98,Boston Celtics,109,0,2026-03-08
+22500922,2026-03-08,Los Angeles Lakers,110,New York Knicks,97,1,2026-03-08
+22500923,2026-03-08,Miami Heat,121,Detroit Pistons,110,1,2026-03-08
+22500924,2026-03-08,Toronto Raptors,122,Dallas Mavericks,92,1,2026-03-08
+22500925,2026-03-08,New Orleans Pelicans,138,Washington Wizards,118,1,2026-03-08
+22500926,2026-03-08,Milwaukee Bucks,91,Orlando Magic,130,0,2026-03-08
+22500927,2026-03-08,San Antonio Spurs,145,Houston Rockets,120,1,2026-03-08
+22500928,2026-03-08,Phoenix Suns,111,Charlotte Hornets,99,1,2026-03-08
+22500929,2026-03-08,Portland Trail Blazers,131,Indiana Pacers,111,1,2026-03-08
+22500930,2026-03-08,Sacramento Kings,126,Chicago Bulls,110,1,2026-03-08
