@@ -1,27 +1,43 @@
 # NBA Game Prediction: Gated Modality Fusion
 Repo Link: https://github.com/thejohnyw/thesis-research
 
-## Current Results — Gated Modality Fusion (2025–26 Season)
+## Current Results (2025–26 Season)
 
-**Data:** 741 NBA games (2025–26 season, Oct 2025 – Mar 2026) with bilateral Reddit text coverage. 28,070 Reddit posts from 30 team subreddits (Mar 2025 – Mar 2026).
+**Data:** 741 NBA games (Oct 2025 – Mar 2026) with bilateral Reddit text coverage. 28,070 Reddit posts from 30 team subreddits.
 
 **Evaluation:** 4-fold temporal cross-validation (expanding window, 20% test). 5 random seeds per model per fold, predictions averaged. All models train/test on identical game sets.
 
 **Structured features (38 dims):** Rolling team stats (win rate, point differential, streak, rest days, home/away splits, ELO) — all computed strictly before tip-off.
 
-**Text features (32 dims):** Reddit posts from team subreddits within 48h pre-game window → `all-MiniLM-L6-v2` (384d) → score-weighted average per team → `[home_emb; away_emb; diff_emb]` (1152d) → PCA to 32d (38.2% variance explained).
+### A. Sentence Embeddings as Text Features
+
+Reddit posts → `all-MiniLM-L6-v2` (384d) → score-weighted average per team → `[home_emb; away_emb; diff_emb]` (1152d) → PCA to 32d.
 
 | Model | Dims | Accuracy | ROC AUC | Log Loss |
 |-------|------|----------|---------|----------|
 | Dummy (home-win %) | 0 | 0.516 | 0.500 | 0.694 |
 | Structured Only | 38 | 0.620 | 0.689 | 0.754 |
-| **Concatenation** | 70 | **0.625** | **0.692** | **0.723** |
+| Text Only (embeddings) | 32 | 0.486 | 0.508 | 0.785 |
+| **Concatenation** | 70 | **0.625** | **0.692** | 0.723 |
 | Gated Fusion | 38+32 | 0.614 | 0.680 | 0.912 |
 | Cross-Attention | 38+32 | 0.610 | 0.683 | 0.932 |
 
-**Concatenation** performs best overall. All learned models substantially beat the dummy baseline (AUC 0.50 → 0.68–0.69).
+Concatenation performs best (AUC 0.692). Gate mean = 0.526 (balanced).
 
-**Gated Fusion** gate mean = 0.526 (balanced), indicating the model uses both modalities adaptively. However, higher log loss suggests overfitting on the small dataset.
+### B. Sentiment + Emotion as Text Features
+
+Reddit posts → `twitter-roberta-base-sentiment-latest` (3-d: negative/neutral/positive) + `emotion-english-distilroberta-base` (7-d: anger/disgust/fear/joy/neutral/sadness/surprise) → score-weighted average per team → `[home; away; diff]` = 30 dims.
+
+| Model | Dims | Accuracy | ROC AUC | Log Loss |
+|-------|------|----------|---------|----------|
+| Dummy (home-win %) | 0 | 0.516 | 0.500 | 0.694 |
+| Structured Only | 38 | 0.620 | 0.689 | 0.754 |
+| Text Only (sent+emo) | 30 | 0.465 | 0.478 | 0.711 |
+| Concatenation | 68 | 0.602 | 0.653 | **0.662** |
+| Gated Fusion | 38+30 | 0.604 | 0.666 | 0.680 |
+| Cross-Attention | 38+30 | 0.607 | 0.653 | 0.677 |
+
+Sentiment/emotion features improve **calibration** (log loss 0.662–0.680 vs 0.723–0.932) but reduce **discriminative power** (AUC 0.653–0.666 vs 0.680–0.692). Gate mean = 0.599 — model leans toward structured features.
 
 ---
 

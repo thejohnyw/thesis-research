@@ -109,6 +109,57 @@ def embed_all_posts(
     return result
 
 
+def extract_sentiment_emotion(
+    posts_index: dict[str, list[dict]],
+    batch_size: int = 64,
+) -> dict[str, dict[str, np.ndarray]]:
+    """Extract sentiment (3-d) + emotion (7-d) = 10-d vector per post."""
+    from transformers import pipeline as hf_pipeline
+
+    # Collect texts
+    all_texts: list[str] = []
+    all_keys: list[tuple[str, str]] = []
+    for sub, posts in posts_index.items():
+        for p in posts:
+            title = str(p.get("title", "") or "")
+            selftext = str(p.get("selftext", "") or "").strip()
+            text = title if not selftext or selftext == "[removed]" else f"{title}. {selftext[:300]}"
+            all_texts.append(text)
+            all_keys.append((sub, p["id"]))
+
+    print(f"  Extracting sentiment & emotion for {len(all_texts)} posts...")
+
+    SENT_LABELS = ["negative", "neutral", "positive"]
+    EMO_LABELS = ["anger", "disgust", "fear", "joy", "neutral", "sadness", "surprise"]
+
+    sent_pipe = hf_pipeline(
+        "sentiment-analysis",
+        model="cardiffnlp/twitter-roberta-base-sentiment-latest",
+        top_k=None, truncation=True, max_length=512, device=-1,
+    )
+    emo_pipe = hf_pipeline(
+        "text-classification",
+        model="j-hartmann/emotion-english-distilroberta-base",
+        top_k=None, truncation=True, max_length=512, device=-1,
+    )
+
+    print("    Sentiment pass...")
+    sent_results = sent_pipe(all_texts, batch_size=batch_size)
+    print("    Emotion pass...")
+    emo_results = emo_pipe(all_texts, batch_size=batch_size)
+
+    result: dict[str, dict[str, np.ndarray]] = {}
+    for i, (sub, pid) in enumerate(all_keys):
+        sent_scores = {r["label"]: r["score"] for r in sent_results[i]}
+        emo_scores = {r["label"]: r["score"] for r in emo_results[i]}
+        vec = np.array(
+            [sent_scores.get(l, 0.0) for l in SENT_LABELS]
+            + [emo_scores.get(l, 0.0) for l in EMO_LABELS]
+        )
+        result.setdefault(sub, {})[pid] = vec
+    return result
+
+
 def build_game_embeddings(
     games_df: pd.DataFrame,
     posts_index: dict[str, list[dict]],
@@ -165,6 +216,7 @@ def load_and_embed(
     window_hours: int,
     top_k: int,
     pca_dim: int,
+    text_mode: str = "embedding",
 ) -> tuple[pd.DataFrame, list[str], np.ndarray]:
     """Load games, structured features, and compute text embeddings."""
     # Posts
@@ -173,8 +225,13 @@ def load_and_embed(
     total_posts = sum(len(v) for v in posts_index.values())
     print(f"  {total_posts} posts from {len(posts_index)} subreddits")
 
-    # Embeddings
-    emb_index = embed_all_posts(posts_index)
+    # Text representations
+    if text_mode == "sentiment":
+        print("  Mode: sentiment + emotion vectors (10-d per post)")
+        emb_index = extract_sentiment_emotion(posts_index)
+    else:
+        print("  Mode: sentence embeddings (384-d per post)")
+        emb_index = embed_all_posts(posts_index)
 
     # Games
     games_df = pd.read_csv(games_csv, parse_dates=["date"])
@@ -212,12 +269,17 @@ def load_and_embed(
     print(f"  {len(df)} games with bilateral text coverage")
     print(f"  Raw embedding dim: {raw_embs.shape[1]}")
 
-    # PCA to reduce dimensionality (384*3=1152 -> pca_dim)
-    actual_pca_dim = min(pca_dim, raw_embs.shape[0], raw_embs.shape[1])
-    pca = PCA(n_components=actual_pca_dim, random_state=42)
-    text_embs = pca.fit_transform(raw_embs)
-    var_explained = pca.explained_variance_ratio_.sum()
-    print(f"  PCA: {raw_embs.shape[1]} -> {actual_pca_dim} dims ({var_explained:.1%} variance)")
+    # Dimensionality reduction
+    if text_mode == "sentiment":
+        # Already low-dim (10*3=30), no PCA needed
+        text_embs = raw_embs
+        print(f"  Sentiment/emotion features: {text_embs.shape[1]} dims (no PCA)")
+    else:
+        actual_pca_dim = min(pca_dim, raw_embs.shape[0], raw_embs.shape[1])
+        pca = PCA(n_components=actual_pca_dim, random_state=42)
+        text_embs = pca.fit_transform(raw_embs)
+        var_explained = pca.explained_variance_ratio_.sum()
+        print(f"  PCA: {raw_embs.shape[1]} -> {actual_pca_dim} dims ({var_explained:.1%} variance)")
 
     return df, struct_cols, text_embs
 
@@ -252,6 +314,21 @@ class StructuredOnlyModel(nn.Module):
 
     def forward(self, x_s: torch.Tensor, _x_t: torch.Tensor) -> torch.Tensor:
         return torch.sigmoid(self.net(x_s))
+
+
+class TextOnlyModel(nn.Module):
+    """Baseline: MLP on text embeddings only."""
+
+    def __init__(self, in_dim: int, hidden: int = 64, dropout: float = 0.3):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(in_dim, hidden), nn.ReLU(), nn.Dropout(dropout),
+            nn.Linear(hidden, hidden // 2), nn.ReLU(), nn.Dropout(dropout),
+            nn.Linear(hidden // 2, 1),
+        )
+
+    def forward(self, _x_s: torch.Tensor, x_t: torch.Tensor) -> torch.Tensor:
+        return torch.sigmoid(self.net(x_t))
 
 
 class ConcatModel(nn.Module):
@@ -457,6 +534,7 @@ def run_cv(
     experiments = {
         "Dummy (home-win %)": [],
         "Structured Only": [],
+        "Text Only": [],
         "Concatenation": [],
         "Gated Fusion": [],
         "Cross-Attention": [],
@@ -509,6 +587,7 @@ def run_cv(
         n_seeds = 5
         model_specs = [
             ("Structured Only", lambda: StructuredOnlyModel(s_dim, hidden_dim)),
+            ("Text Only", lambda: TextOnlyModel(t_dim, hidden_dim)),
             ("Concatenation", lambda: ConcatModel(s_dim, t_dim, hidden_dim)),
             ("Gated Fusion", lambda: GatedFusionModel(s_dim, t_dim, hidden_dim)),
             ("Cross-Attention", lambda: CrossAttentionModel(s_dim, t_dim, hidden_dim)),
@@ -539,6 +618,7 @@ def run_cv(
     dims_map = {
         "Dummy (home-win %)": 0,
         "Structured Only": s_dim,
+        "Text Only": t_dim,
         "Concatenation": s_dim + t_dim,
         "Gated Fusion": f"{s_dim}+{t_dim}",
         "Cross-Attention": f"{s_dim}+{t_dim}",
@@ -581,6 +661,8 @@ def main() -> None:
     ap.add_argument("--hidden_dim", type=int, default=64)
     ap.add_argument("--epochs", type=int, default=150)
     ap.add_argument("--lr", type=float, default=1e-3)
+    ap.add_argument("--text_mode", choices=["embedding", "sentiment"], default="embedding",
+                    help="Text representation: 'embedding' (384-d sentence vectors) or 'sentiment' (10-d sentiment+emotion)")
     args = ap.parse_args()
 
     df, struct_cols, text_embs = load_and_embed(
@@ -590,9 +672,10 @@ def main() -> None:
         args.window_hours,
         args.top_k_posts,
         args.pca_dim,
+        text_mode=args.text_mode,
     )
     print(f"  Structured: {len(struct_cols)} dims")
-    print(f"  Text embed: {text_embs.shape[1]} dims (PCA)")
+    print(f"  Text: {text_embs.shape[1]} dims ({args.text_mode} mode)")
 
     print(f"\nRunning {args.n_splits}-fold temporal CV...")
     results = run_cv(

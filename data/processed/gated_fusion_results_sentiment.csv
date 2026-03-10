@@ -1,0 +1,7 @@
+Experiment,Dims,Accuracy,ROC AUC,Log Loss,Splits,Gate Mean,Gate Std
+Dummy (home-win %),0,0.516,0.5,0.694,4,,
+Structured Only,38,0.62,0.689,0.754,4,,
+Text Only,30,0.465,0.478,0.711,4,,
+Concatenation,68,0.602,0.653,0.662,4,,
+Gated Fusion,38+30,0.604,0.666,0.68,4,0.599,0.085
+Cross-Attention,38+30,0.607,0.653,0.677,4,,
