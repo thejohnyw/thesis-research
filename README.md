@@ -57,8 +57,8 @@ Repo Link: https://github.com/thejohnyw/thesis-research
 | Model | Accuracy | ROC AUC | Log Loss |
 |-------|----------|---------|----------|
 | B1 – Structured | **0.593** | **0.663** | 0.660 |
-| B2 – Text only | 0.439 | 0.391 | 1.680 |
-| B3 – Fusion | 0.485 | 0.456 | 2.110 |
+| B2 – Text only (transformer embeddings) | 0.439 | 0.391 | 1.680 |
+| B3 – Fusion (B1 + B2)| 0.485 | 0.456 | 2.110 |
 
 ### Why Text Failed in Baselines
 
@@ -76,4 +76,4 @@ Repo Link: https://github.com/thejohnyw/thesis-research
 5. **Seed averaging** — 5 seeds per model per fold to reduce variance.
 
 ## References
-Claude Code was used for implementation and analysis
+Claude Code and CodeX were used for implementation and analysis
