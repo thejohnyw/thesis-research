@@ -10,3 +10,14 @@ data/raw/
 # Local secrets or env files
 .env
 .env.*
+*.pem
+
+# Trading databases (contain personal trade history + reddit posts)
+data/trading.db
+data/trading_sentiment.db
+data/trading_antibot.db
+data/trading_orderbook.db
+
+# IDE and tooling
+.claude/
+.vscode/

@@ -60,6 +60,7 @@ def fetch_listing(subreddit: str, sort: str, after: str | None = None,
             posts.append({
                 "id": d.get("id", ""),
                 "subreddit": subreddit,
+                "author": d.get("author", ""),
                 "title": d.get("title", ""),
                 "selftext": d.get("selftext", ""),
                 "score": d.get("score", 0),
