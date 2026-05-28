@@ -3,7 +3,7 @@ Background scheduler — periodic Kalshi price collection, edge scanning, and se
 
 Collection and scanning both run every 5 minutes during the NBA game window
 (~6pm–1am ET). Settlement runs every 2 minutes. Reddit posts are collected
-every 4 hours.
+every 4 hours. Pre-game M3 predictions run daily at 16:00 UTC (noon ET).
 """
 import logging
 from datetime import datetime, timezone
@@ -80,6 +80,16 @@ def reddit_job():
         log.error(f"Reddit collection failed: {e}")
 
 
+def pregame_job():
+    """Compute M3 model probabilities for today's games. Runs at noon ET (16:00 UTC)."""
+    try:
+        from backend.data.pregame_features import run_and_save
+        run_and_save()
+        log.info("Pre-game M3 predictions computed")
+    except Exception as e:
+        log.error(f"Pregame prediction failed: {e}")
+
+
 def daily_reset_job():
     save_daily_stats()
     update_bot_state(daily_pnl=0)
@@ -92,6 +102,7 @@ def start_scheduler():
     scheduler.add_job(settle_job, "interval", seconds=SETTLE_INTERVAL_SECONDS, id="settle")
     scheduler.add_job(heartbeat_job, "interval", seconds=60, id="heartbeat")
     scheduler.add_job(reddit_job, "interval", hours=4, id="reddit")
+    scheduler.add_job(pregame_job, "cron", hour=16, minute=0, id="pregame")
     scheduler.add_job(daily_reset_job, "cron", hour=0, id="daily_reset")
     scheduler.start()
     log.info(

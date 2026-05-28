@@ -1,11 +1,13 @@
 """
 Signal generator — orchestrates data collection, edge finding, and trade execution.
 
-scan_and_trade() accepts an optional Strategy. Pass None (default) to use the
-SharpVsKalshi strategy. Pass a RandomStrategy (or any custom Strategy) to test
-a different signal source without changing anything else.
+Default strategy is M3EdgeStrategy (RF model prob vs Kalshi, coin-flip filter).
+Requires data/pregame_predictions.json (written daily by the pregame scheduler job)
+and models/m3_rf.pkl (written by scripts/train_m3_model.py).
+Falls back to SharpVsKalshiStrategy if model files are missing.
 """
 import logging
+import os
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 
@@ -62,13 +64,27 @@ def collect_odds():
     return seen
 
 
+def _default_strategy() -> Strategy:
+    """M3EdgeStrategy if model files exist, else SharpVsKalshi with a warning."""
+    from backend.strategies.m3_edge import M3EdgeStrategy
+    model_files = ["models/m3_rf.pkl", "models/m3_scaler.pkl", "models/m3_feature_cols.json"]
+    if all(os.path.exists(p) for p in model_files):
+        return M3EdgeStrategy()
+    log.warning(
+        "M3 model files not found — falling back to SharpVsKalshiStrategy. "
+        "Run: python scripts/train_m3_model.py"
+    )
+    from backend.core.strategy import SharpVsKalshiStrategy
+    return SharpVsKalshiStrategy()
+
+
 def scan_and_trade(strategy: Optional[Strategy] = None) -> list[dict]:
     """
     Find edges and execute trades (paper or live).
 
-    strategy: pass a Strategy instance to override signal generation.
-              None (default) uses SharpVsKalshi — the same behaviour as before.
-              Example: scan_and_trade(RandomStrategy()) for random paper orders.
+    Default strategy is M3EdgeStrategy (RF model prob vs Kalshi, coin-flip filter).
+    Falls back to SharpVsKalshiStrategy if model files are missing.
+    Pass an explicit strategy to override (e.g. RandomStrategy() for testing).
     """
     open_count = len(get_open_trades())
     if open_count >= MAX_PENDING_TRADES:
@@ -79,22 +95,9 @@ def scan_and_trade(strategy: Optional[Strategy] = None) -> list[dict]:
     executed = []
 
     if strategy is None:
-        # Default path: use the existing sharp-vs-kalshi edge finder
-        candidates = [
-            {
-                "game_id": opp.game_id,
-                "matchup": f"{opp.away_team} @ {opp.home_team}",
-                "side": opp.side,
-                "edge": abs(opp.edge),
-                "confidence": opp.confidence,
-                "kalshi_prob": opp.kalshi_prob,
-                "sharp_prob": opp.sharp_prob,
-                "kalshi_ticker": opp.kalshi_ticker,
-            }
-            for opp in find_edges()
-        ]
-    else:
-        candidates = _build_candidates(strategy)
+        strategy = _default_strategy()
+
+    candidates = _build_candidates(strategy)
 
     for c in candidates[:MAX_TRADES_PER_SCAN]:
         sizing = risk.calculate_size(c["edge"], c["kalshi_prob"], c["side"])
