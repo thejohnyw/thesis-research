@@ -1,95 +1,207 @@
-# NBA Game Prediction: Gated Modality Fusion
-Repo Link: https://github.com/thejohnyw/thesis-research
+# NBA Prediction & Kalshi Trading Bot
 
-## Current Results (2025–26 Season)
+Thesis project: does Reddit fan sentiment add predictive signal for NBA game outcomes, and can that signal generate trading edge on Kalshi prediction markets?
 
-**Data:** 741 NBA games (Oct 2025 – Mar 2026) with bilateral Reddit text coverage. 28,070 Reddit posts from 30 team subreddits.
-
-**Evaluation:** 4-fold temporal cross-validation (expanding window, 20% test). 5 random seeds per model per fold, predictions averaged. All models train/test on identical game sets.
-
-**Structured features (38 dims):** Rolling team stats (win rate, point differential, streak, rest days, home/away splits, ELO) — all computed strictly before tip-off.
-
-### A. Sentence Embeddings as Text Features
-
-Reddit posts → `all-MiniLM-L6-v2` (384d) → score-weighted average per team → `[home_emb; away_emb; diff_emb]` (1152d) → PCA to 32d.
-
-| Model | Dims | Accuracy | ROC AUC | Log Loss |
-|-------|------|----------|---------|----------|
-| Dummy (home-win %) | 0 | 0.516 | 0.500 | 0.694 |
-| Structured Only | 38 | 0.620 | 0.689 | 0.754 |
-| Text Only (embeddings) | 32 | 0.486 | 0.508 | 0.785 |
-| **Concatenation** | 70 | **0.625** | **0.692** | 0.723 |
-| Gated Fusion | 38+32 | 0.614 | 0.680 | 0.912 |
-| Cross-Attention | 38+32 | 0.610 | 0.683 | 0.932 |
-
-Concatenation performs best (AUC 0.692). Gate mean = 0.526 (balanced).
-
-### B. Sentiment + Emotion as Text Features
-
-Reddit posts → `twitter-roberta-base-sentiment-latest` (3-d: negative/neutral/positive) + `emotion-english-distilroberta-base` (7-d: anger/disgust/fear/joy/neutral/sadness/surprise) → score-weighted average per team → `[home; away; diff]` = 30 dims.
-
-| Model | Dims | Accuracy | ROC AUC | Log Loss |
-|-------|------|----------|---------|----------|
-| Dummy (home-win %) | 0 | 0.516 | 0.500 | 0.694 |
-| Structured Only | 38 | 0.620 | 0.689 | 0.754 |
-| Text Only (sent+emo) | 30 | 0.465 | 0.478 | 0.711 |
-| Concatenation | 68 | 0.602 | 0.653 | **0.662** |
-| Gated Fusion | 38+30 | 0.604 | 0.666 | 0.680 |
-| Cross-Attention | 38+30 | 0.607 | 0.653 | 0.677 |
-
-Sentiment/emotion features improve **calibration** (log loss 0.662–0.680 vs 0.723–0.932) but reduce **discriminative power** (AUC 0.653–0.666 vs 0.680–0.692). Gate mean = 0.599 — model leans toward structured features.
+**Answer:** Yes on both counts — marginally. The M3 model (structured stats + full sentiment distribution) achieves AUC 0.696 vs 0.689 for stats alone. The SELL side of the model-edge strategy hits 56.3% win rate in coin-flip games (+$258 over 87 trades in OOS backtest). Full results in [RESULTS.md](RESULTS.md).
 
 ---
 
-## Architecture Details
+## Setup
 
-**Gated Fusion (novel):**
-- Separate encoders for structured and text features
-- Gate conditioned on structured representation: `gate = sigmoid(gate_net(h_s))`
-- Fused: `h = gate * h_s + (1 - gate) * h_t`
-- When structured features are confident, gate suppresses noisy text
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install fastapi uvicorn apscheduler python-dotenv statsmodels transformers
+```
 
-**Cross-Attention (novel):**
-- Structured features produce a query that attends over text
-- `context = attention_weight * h_text`
-- Output from `[h_struct; context]`
+Create `.env` with Kalshi credentials:
+```
+KALSHI_KEY_ID=your_key_id
+KALSHI_KEY_PATH=kalshi_key.pem
+```
 
 ---
 
-## Prior Baseline Audit (2024–25 Season)
+## Quick start — run the analysis
 
-**Data:** 1,309 NBA games (2024–25 season), binary label = home win (~56% base rate)
+```bash
+# Reproduce the 3-model comparison (M1/M2/M3, OOS metrics + trading sim)
+python scripts/compare_models.py
 
-**Evaluation:** Time-based expanding window, 5 splits for B1; 3 for B2/B3 (limited by text coverage), 20% test each.
+# Generate thesis paper tables and trade log
+python scripts/extract_paper_results.py
+# → results/paper_results.md
+# → results/trade_log.csv
 
-| Baseline | Model | Features | Games | Dims |
-|----------|-------|----------|-------|------|
-| B1 | MLP | Structured stats | 1,309 | ~25 |
-| B2 | Logistic Reg | BERT embeddings | 325 | 384 |
-| B3 | MLP | Struct + Text fusion | 325 | 416 |
+# Run the strategy backtest (AntiBotClean + 3 other strategies)
+python scripts/backtest_strategies.py
+```
 
-**Text features:** GDELT articles from 5-day pre-game window → `all-MiniLM-L6-v2` (384d, frozen) → mean pool. Only 325 games had text coverage.
+---
 
-| Model | Accuracy | ROC AUC | Log Loss |
-|-------|----------|---------|----------|
-| B1 – Structured | **0.593** | **0.663** | 0.660 |
-| B2 – Text only (transformer embeddings) | 0.439 | 0.391 | 1.680 |
-| B3 – Fusion (B1 + B2)| 0.485 | 0.456 | 2.110 |
+## Quick start — live trading bot
 
-### Why Text Failed in Baselines
+```bash
+# 1. Train and serialize the M3 model (one-time, re-run when data updates)
+python scripts/train_m3_model.py
+# → models/m3_rf.pkl, models/m3_scaler.pkl, models/m3_feature_cols.json
 
-1. **Dimensionality mismatch** — 384 dims with only 130–260 training games.
-2. **Overconfident wrong predictions** — Log loss of 1.68–2.11 vs 0.693 for a constant predictor.
-3. **Text content isn't predictive** — GDELT returns generic sports desk roundups, not game-specific intel.
-4. **Fusion amplifies noise** — B3 has worse log loss than B2. 384d text noise dominates the gradient.
+# 2. Start the FastAPI server (paper trading mode by default)
+uvicorn backend.api.main:app --reload
 
-### What Changed for Gated Fusion
+# 3. Start the scheduler (Kalshi price collection + scan + settlement)
+curl -X POST http://localhost:8000/api/bot/start
+```
 
-1. **Better text source** — Reddit team subreddits instead of GDELT. Fan discussion captures injuries, lineup changes, team sentiment.
-2. **Aggressive dimensionality reduction** — PCA 1152 → 32 dims instead of raw 384d.
-3. **Score-weighted embeddings** — High-engagement posts weighted more heavily (instead of mean pool).
-4. **Bilateral filter** — Only games where both teams have Reddit posts are used, ensuring fair comparison.
-5. **Seed averaging** — 5 seeds per model per fold to reduce variance.
+The bot runs in **paper trading mode** by default (`PAPER_TRADING = True` in `backend/config.py`). Set to `False` to go live.
 
-## References
-Claude Code and CodeX were used for implementation and analysis
+**Dashboard:** `GET /api/dashboard` — bankroll, open positions, recent trades, current edges.
+
+### Daily operations
+The scheduler handles everything automatically once started:
+| Job | Frequency | What it does |
+|---|---|---|
+| `collect_job` | Every 5 min (game window) | Fetch live Kalshi prices |
+| `scan_job` | Every 5 min | Run M3EdgeStrategy, place trades |
+| `settle_job` | Every 2 min | Resolve finished games, book P&L |
+| `reddit_job` | Every 4 hours | Fetch + score new Reddit posts |
+| `pregame_job` | Daily 16:00 UTC (noon ET) | Compute M3 model probabilities for today's games |
+| `daily_reset_job` | Midnight UTC | Save daily stats, reset daily P&L |
+
+---
+
+## How the signal works (M3EdgeStrategy)
+
+1. **Noon ET daily:** `pregame_job` computes 53 features per upcoming game:
+   - 41 structured (rolling win rates, scoring, streaks, rest — from `data/processed/games_api.csv`)
+   - 12 sentiment (mean/std/entropy from Reddit posts in trading.db, 48h window ending midnight UTC of game date)
+   - Runs serialized RF model → `data/pregame_predictions.json`
+
+2. **Each scan:** `M3EdgeStrategy` checks every upcoming game:
+   - Skip if Kalshi price outside [0.40, 0.60] (only trade coin-flip games)
+   - `edge = model_prob − kalshi_price`
+   - SELL home if `edge < −0.05` (market overpricing home team)
+   - BUY home if `edge > +0.05`
+
+3. **Sizing:** Quarter-Kelly (25%), capped at 5% of bankroll / $100 hard max.
+
+---
+
+## File map
+
+```
+src/                          # Offline data pipeline
+  fetch_games_api.py          # Pull NBA schedule/scores from nba_api
+  fetch_reddit_bulk.py        # Bulk Reddit scrape (30 subreddits)
+  sentiment.py                # Score posts with twitter-roberta-base-sentiment-latest
+  feature_engineering.py      # Compute 41 rolling structured features
+  user_features.py            # Aggregate sentiment by user → 12 features
+  create_training_data.py     # Join everything → training_data_with_sentiment.csv
+
+scripts/                      # Analysis & model scripts
+  train_m3_model.py           # Train RF on all 953 games → models/
+  compare_models.py           # M1 vs M2 vs M3: OOS metrics + trading sim
+  extract_paper_results.py    # Thesis tables → results/paper_results.md
+  backtest_strategies.py      # AntiBotClean and strategy comparisons
+  fetch_all_kalshi_prices.py  # Fetch historical Kalshi prices (candlesticks)
+  fetch_remaining_prices.py   # Fetch via trade history endpoint (fallback)
+  backtest_real.py            # Backtest against live bot's collected odds (trading.db)
+  analyze_bot_moves.py        # LLM bot move detector for Kalshi markets
+  run_sim.py                  # Live paper-trading sim (RandomStrategy)
+
+backend/                      # Live trading bot
+  config.py                   # All tuneable parameters (PAPER_TRADING, Kelly, limits)
+  api/main.py                 # FastAPI server + dashboard endpoints
+  core/
+    signals.py                # scan_and_trade() — orchestrates scans + order execution
+    scheduler.py              # APScheduler job definitions
+    edge.py                   # SharpVsKalshi edge finder (fallback strategy)
+    risk.py                   # Kelly sizing + position limits + circuit breaker
+    settlement.py             # Resolve finished games, book P&L, compute CLV
+    strategy.py               # Strategy base class + SharpVsKalshi + RandomStrategy
+  strategies/
+    m3_edge.py                # M3EdgeStrategy (default) — RF model vs Kalshi price
+    anti_bot.py               # AntiBotSentimentStrategy — sentiment+market agreement
+    user_sentiment.py         # UserSentimentStrategy — raw sentiment diff
+    order_book_anchor.py      # OrderBookAnchorStrategy — order book imbalance
+  data/
+    kalshi_client.py          # Kalshi REST API client
+    reddit_collector.py       # Live Reddit fetch + score + store to DB
+    pregame_features.py       # Compute M3 features for upcoming games
+    markets.py                # Parse Kalshi tickers → team names
+    nba_outcomes.py           # Fetch final scores for settlement
+
+data/
+  processed/
+    games_api.csv             # 953 regular-season games (nba_api)
+    features.csv              # 41 structured features per game
+    training_data_with_sentiment.csv  # Full M3 training dataset (53 features)
+    reddit_with_sentiment.jsonl       # Scored Reddit posts
+  kalshi_historical_prices.csv  # Pre-game Kalshi prices for all 953 games
+  kalshi_settled_games.json     # Settled game reference data
+  trading.db                    # Live bot SQLite DB (games, odds, trades, reddit_posts)
+
+models/                       # Serialized model (gitignored — run train_m3_model.py)
+  m3_rf.pkl
+  m3_scaler.pkl
+  m3_feature_cols.json
+
+results/                      # Generated outputs
+  paper_results.md            # Thesis tables (eligible universe, Wilson CI, etc.)
+  trade_log.csv               # Per-trade record for all OOS M1/M2/M3 predictions
+
+RESULTS.md                    # Full methodology + results (authoritative reference)
+```
+
+---
+
+## Rebuilding the dataset from scratch
+
+```bash
+# 1. Fetch NBA schedule and scores
+python -m src.fetch_games_api
+
+# 2. Bulk-scrape Reddit posts (30 subreddits, 48h pre-game windows)
+python -m src.fetch_reddit_bulk
+
+# 3. Score posts with sentiment model
+python -m src.sentiment
+
+# 4. Compute structured features
+python -m src.feature_engineering
+
+# 5. Build training dataset (join games + features + sentiment)
+python -m src.create_training_data
+
+# 6. Fetch historical Kalshi prices (needed for backtest/trading sim)
+python scripts/fetch_all_kalshi_prices.py
+```
+
+---
+
+## Configuration (`backend/config.py`)
+
+| Parameter | Default | Description |
+|---|---|---|
+| `PAPER_TRADING` | `True` | Set `False` to place real Kalshi orders |
+| `KELLY_FRACTION` | `0.25` | Quarter-Kelly position sizing |
+| `MAX_POSITION_PCT` | `0.05` | Max 5% of bankroll per trade |
+| `MAX_POSITION_DOLLARS` | `100` | Hard cap per trade |
+| `DAILY_LOSS_LIMIT` | `200` | Stop trading if daily P&L ≤ −$200 |
+| `MIN_EDGE` | `0.03` | Minimum edge for SharpVsKalshi fallback |
+| `INITIAL_BANKROLL` | `1000.0` | Starting bankroll |
+
+---
+
+## Key numbers
+
+| | Value |
+|---|---|
+| Training games | 953 NBA regular season (2025-10-21 → 2026-03-08) |
+| Reddit posts | 28,070 scored posts across 30 subreddits |
+| M3 OOS AUC | 0.696 (vs 0.689 struct-only baseline) |
+| Kalshi market AUC | 0.724 (well-informed benchmark) |
+| M3 SELL win rate | 56.3% (87 trades, coin-flip games only) |
+| M3 total PnL | +$154 / Sharpe 0.66 (flat $50/bet, 7% fee) |
+| AntiBotClean win rate | 71.8% (p=0.0002), PnL ≈ −$15 (already priced in) |
