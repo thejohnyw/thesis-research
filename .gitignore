@@ -18,6 +18,12 @@ data/trading_sentiment.db
 data/trading_antibot.db
 data/trading_orderbook.db
 
+# Virtualenv
+.venv/
+
+# Trained model artifacts
+models/
+
 # IDE and tooling
 .claude/
 .vscode/

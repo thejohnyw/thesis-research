@@ -2,13 +2,17 @@
 Strategy comparison backtest — 2025-26 NBA season (regular + playoffs).
 
 Data sources (in order of preference):
-  1. REAL Kalshi prices + real reddit posts + real outcomes (playoff games
-     where the live bots were running — Apr 28 → present).
+  1. REAL Kalshi prices + real reddit posts + real outcomes (Apr 28 → present).
+     Live bot DBs carry per-game Kalshi prices collected before each game.
      Reddit posts are time-gated by created_utc < game_start_utc (no leakage).
 
-  2. RF-proxy Kalshi + pre-computed sentiment (regular season Oct–Mar).
+  2. REAL Kalshi prices (historical API tier) + bulk reddit + real outcomes
+     (Mar 21 – Mar 26, before live bot started but within historical API cutoff).
+     Prices fetched from /historical/markets/{ticker}/candlesticks — 24h pre-close.
+
+  3. RF-proxy Kalshi + pre-computed sentiment (regular season Oct – Mar 8).
      Kalshi historical data unavailable for those settled markets; the
-     structured-only RandomForest is the best available substitute.
+     structured-only RandomForest (trained walk-forward) is the best substitute.
      Sentiment was already time-gated when the training CSV was built.
 
 Strategies:
@@ -41,7 +45,8 @@ from src.user_features import SENTIMENT_FEATURE_COLS, aggregate_by_user
 from backend.config import KALSHI_FEE, KELLY_FRACTION
 from backend.data.markets import parse_kalshi_ticker
 
-REG_SEASON_CSV = "data/processed/training_data_with_sentiment.csv"
+REG_SEASON_CSV        = "data/processed/training_data_with_sentiment.csv"
+HISTORICAL_PRICES_CSV = "data/kalshi_historical_prices.csv"   # Mar 21-26 real prices
 
 # Live bot databases that carry real Kalshi prices + outcomes
 LIVE_DBS = [
@@ -369,7 +374,7 @@ def compute_stats(r):
 # ── Output ────────────────────────────────────────────────────────────────────
 
 def print_comparison(results, n_reg, n_live):
-    real_note = f"({n_reg} reg-season RF proxy + {n_live} playoffs real Kalshi)"
+    real_note = f"({n_reg} RF proxy + {n_live} real Kalshi prices)"
     print(f"\n{SEP2}")
     print(f"  STRATEGY COMPARISON — 2025-26 NBA  {real_note}")
     print(SEP2)
@@ -491,10 +496,58 @@ def main():
             "source":              "rf_proxy",
         })
 
-    # ── Phase 2: playoffs → real Kalshi prices ────────────────────────────────
-    print(f"\nPhase 2 — Playoffs (real Kalshi prices from live bot DBs)...")
+    # ── Phase 2a: Mar 21-26 → real Kalshi prices (historical API tier) ───────
+    hist_rows = []
+    if os.path.exists(HISTORICAL_PRICES_CSV):
+        print(f"\nPhase 2a — Historical Kalshi prices (Mar 21-26)...")
+        hist_df = pd.read_csv(HISTORICAL_PRICES_CSV)
+        # Load bulk reddit posts for these games (bulk data covers up to Mar 9;
+        # these games are Mar 21-26 so posts will be sparse / near-zero)
+        from src.user_features import load_posts, build_index, get_game_sentiment_features
+        try:
+            posts = load_posts("data/processed/reddit_with_sentiment.jsonl")
+            idx   = build_index(posts)
+        except Exception:
+            posts, idx = [], {}
+
+        for _, row in hist_df.iterrows():
+            price = row.get("kalshi_pregame_price") or row.get("kalshi_open_price")
+            if price is None:
+                continue
+            game_date = str(row["date"])[:10]
+            # Try to get reddit sentiment for this game
+            from datetime import datetime, timezone
+            try:
+                game_utc = int(datetime.strptime(game_date, "%Y-%m-%d")
+                               .replace(tzinfo=timezone.utc).timestamp())
+                sent = get_game_sentiment_features(
+                    idx, row["home_team"], row["away_team"], game_utc, hours=48
+                )
+            except Exception:
+                sent = {"home_mean_sentiment": 0, "away_mean_sentiment": 0,
+                        "home_num_posts": 0, "away_num_posts": 0}
+
+            hist_rows.append({
+                "date":                game_date,
+                "home_team":           row["home_team"],
+                "away_team":           row["away_team"],
+                "home_win":            int(row["home_won"]),
+                "kalshi_prob":         float(price),
+                "home_mean_sentiment": float(sent.get("home_mean_sentiment", 0) or 0),
+                "away_mean_sentiment": float(sent.get("away_mean_sentiment", 0) or 0),
+                "home_num_posts":      int(sent.get("home_num_posts", 0) or 0),
+                "away_num_posts":      int(sent.get("away_num_posts", 0) or 0),
+                "source":              "live_kalshi",
+            })
+        print(f"  {len(hist_rows)} games with real historical Kalshi prices")
+        have_posts = sum(1 for r in hist_rows
+                        if r["home_num_posts"] >= 5 and r["away_num_posts"] >= 5)
+        print(f"  Games with ≥5 posts/team: {have_posts}")
+
+    # ── Phase 2b: Apr 28+ → real Kalshi prices from live bot DBs ────────────
+    print(f"\nPhase 2b — Live bot Kalshi prices (Apr 28 – present)...")
     live_rows = load_live_game_rows(min_posts=0, reddit_hours=args.reddit_hours)
-    print(f"  {len(live_rows)} unique settled playoff games with real prices")
+    print(f"  {len(live_rows)} unique settled games with real prices")
     if live_rows:
         dates = sorted(set(r["date"] for r in live_rows))
         print(f"  Date range: {dates[0]} → {dates[-1]}")
@@ -502,11 +555,24 @@ def main():
                         if r["home_num_posts"] >= 5 and r["away_num_posts"] >= 5)
         print(f"  Games with ≥5 posts/team: {have_posts}")
 
-    # ── Combine ───────────────────────────────────────────────────────────────
-    all_rows = reg_rows + live_rows
+    # ── Combine (dedup by date+teams, live_rows overrides hist_rows) ─────────
+    # Use a dict so live bot data (more reliable) wins over historical API data
+    # for any overlap
+    real_by_key: dict[tuple, dict] = {}
+    for r in hist_rows:
+        real_by_key[(r["home_team"], r["away_team"], r["date"])] = r
+    for r in live_rows:
+        real_by_key[(r["home_team"], r["away_team"], r["date"])] = r
+    all_real = list(real_by_key.values())
+
+    real_keys = {(r["home_team"], r["away_team"], r["date"]) for r in all_real}
+    reg_rows_deduped = [r for r in reg_rows if (r["home_team"], r["away_team"], r["date"]) not in real_keys]
+    all_rows = reg_rows_deduped + all_real
     all_rows.sort(key=lambda r: r["date"])
+    n_real_total = len(all_real)
     print(f"\nCombined dataset: {len(all_rows)} games "
-          f"({len(reg_rows)} RF proxy + {len(live_rows)} real Kalshi)")
+          f"({len(reg_rows_deduped)} RF proxy + {n_real_total} real Kalshi "
+          f"[{len(hist_rows)} historical API + {len(live_rows)} live bot])")
 
     # ── Run strategies ────────────────────────────────────────────────────────
     strategy_configs = [
@@ -529,7 +595,7 @@ def main():
         )
         results.append(compute_stats(r))
 
-    print_comparison(results, n_reg=len(reg_rows), n_live=len(live_rows))
+    print_comparison(results, n_reg=len(reg_rows_deduped), n_live=n_real_total)
     for s in results:
         print_detail(s, show_trades=args.trades, verbose=args.verbose)
     print()

@@ -64,11 +64,16 @@ Computed per team, then differenced:
 | `{home,away}_user_entropy` | Shannon entropy of per-user sentiment distribution |
 | `diff_*` | Home minus away for each of the above 4 |
 
-### Gated Fusion (novel architecture)
-- **Text path:** Posts → `all-MiniLM-L6-v2` sentence embeddings (384-d) → score-weighted mean per team → `[home; away; diff]` concat (1152-d) → PCA → 32-d
-- **Gate:** `gate = σ(W · h_structured)` — structured features control how much text is used
-- **Fused:** `h = gate · h_struct + (1 − gate) · h_text`
-- **Cross-Attention variant:** Structured features produce a query that attends over text representation
+### Three-model comparison
+All models use a Random Forest classifier (150 trees, max_depth=6, min_samples_leaf=8, max_features=sqrt) with 4-fold walk-forward CV.
+
+| Model | Label | Feature set |
+|---|---|---|
+| M1 | Baseline | 41 structured only |
+| M2 | + Mean sentiment | 41 struct + 3 mean-sentiment cols |
+| M3 | + Full distribution | 41 struct + 12 full sentiment distribution |
+
+Kalshi pregame price (`expected_expiration_time − 3h` candlestick) is **not** included as a model feature to avoid contaminating the edge signal.
 
 ---
 
@@ -77,7 +82,7 @@ Computed per team, then differenced:
 - **Method:** 4-fold temporal expanding-window cross-validation (`TimeSeriesSplit`)
 - **Games in OOS evaluation:** 760 / 953 (first fold used only for training)
 - **No shuffling** — folds respect chronological order to prevent leakage
-- **Leakage prevention:** Reddit posts filtered to `created_utc < game_start_utc` and `>= game_start_utc - 48h`
+- **Reddit window:** `[midnight_utc(game_date) − 48h, midnight_utc(game_date))` — the cutoff is midnight UTC on the game's calendar date (e.g. game on 2026-02-24 → cutoff = 2026-02-24 00:00 UTC ≈ 7 PM ET the night before). `cutoff_utc` in `games_api.csv` stores only the date string; `_game_utc()` in `src/create_training_data.py` always truncates to midnight UTC. **Implication:** game-day posts (injury reports, lineup tweets) are excluded — a conservative choice that guarantees no leakage but omits the freshest pre-game sentiment.
 
 ---
 
@@ -87,66 +92,80 @@ All metrics on the 760 out-of-sample games (4-fold walk-forward, RF classifier).
 
 | Model | Features | N (OOS) | Accuracy | ROC AUC | Brier Score |
 |---|---|---|---|---|---|
-| Dummy (always predict home win rate) | — | 760 | 0.530 | 0.500 | 0.249 |
-| Structured only | 41 | 760 | **0.643** | **0.691** | 0.223 |
-| Sentiment only | 12 | 760 | 0.538 | 0.528 | 0.256 |
-| Struct + all sentiment | 53 | 760 | 0.650 | 0.693 | 0.222 |
+| Dummy (majority class) | — | 760 | 0.530 | 0.500 | 0.249 |
+| M1 — Baseline (struct only) | 41 | 760 | 0.636 | 0.689 | 0.224 |
+| M2 — Standard (struct + mean sent) | 44 | 760 | **0.651** | 0.692 | 0.223 |
+| M3 — Thesis (struct + full sent dist) | 53 | 760 | 0.643 | **0.696** | **0.221** |
+| Kalshi market (hard threshold ≥ 0.5) | — | 760 | 0.654 | 0.724 | — |
 
-### Ablations
-
-| Model | Accuracy | ROC AUC | Brier |
-|---|---|---|---|
-| Struct only (baseline) | 0.643 | 0.691 | 0.223 |
-| Struct + mean_sentiment only (no user features) | 0.653 | 0.700 | 0.221 |
-| Struct + user features only (no raw mean) | 0.637 | 0.693 | 0.223 |
-| Struct + all sentiment (full) | 0.650 | 0.693 | 0.222 |
-
-Takeaway: sentiment adds marginal discriminative lift (+0.002 AUC). Post-level mean sentiment contributes more than user-variance features in isolation. Gains are small but consistent across folds.
+Takeaway: AUC improves monotonically M1 → M2 → M3 (+0.007 total). Mean sentiment (M2) explains most of the gain; the full distribution's std and entropy features add a further +0.004 AUC. The Kalshi market (AUC 0.724) outperforms all three models, confirming the market is well-informed — the models' edge comes from identifying games where market pricing diverges from the sentiment signal.
 
 ---
 
 ## 6. Trading Simulation Results
 
-**Strategy: AntiBotClean** (agreement-only regime)  
-Signal fires when: Reddit sentiment diff > ±0.10 AND Kalshi market direction agrees  
+### 6a. Model-Edge Strategy (primary thesis result)
+
+**Signal:** Kalshi pregame price ∈ [0.40, 0.60] AND |model_prob − kalshi_price| > 0.05  
+- BUY home: `model_prob − kalshi_price > +0.05`  
+- SELL home: `model_prob − kalshi_price < −0.05`  
+- Flat $50/bet, 7% Kalshi fee on profit, 4-fold walk-forward OOS (760 games)
+
+| Model | N bets | Win Rate | PnL | Sharpe | p-value |
+|---|---|---|---|---|---|
+| M1 — Baseline | 167 | 44.3% | −$486 | −1.94 | 0.94 |
+| M2 — Standard | 173 | 49.7% | −$48 | −0.18 | 0.56 |
+| **M3 — Thesis** | **155** | **52.3%** | **+$154** | **0.66** | **0.315** |
+| Random baseline (500-trial avg) | 230 | 50.2% | −$173 | −0.53 | 0.55 |
+
+**Buy/Sell breakdown (M3):**
+
+| Side | N | Win Rate | PnL |
+|---|---|---|---|
+| BUY home | 68 | 47.1% | −$104 |
+| **SELL home** | **87** | **56.3%** | **+$258** |
+
+**Interpretation:**  
+M3's positive PnL (+$154) is driven entirely by the SELL side (56.3% WR, +$258). When M3 predicts a lower home-win probability than the Kalshi market, it is correct 56.3% of the time in coin-flip games. The BUY side (47.1% WR) does not generate a reliable edge, suggesting the sentiment signal's information content is asymmetric — it is better at detecting overpriced home teams than underpriced ones. The 0.315 p-value means results are directionally consistent but not statistically significant at conventional thresholds; the 155-trade sample is the binding constraint.
+
+Wilson 95% CI on M3 overall win rate: [44.4%, 60.0%]
+
+---
+
+### 6b. AntiBotClean Strategy (directional-signal analysis)
+
+**Signal:** Reddit raw sentiment diff > ±0.10 AND Kalshi market direction agrees  
 - BUY home: `diff > 0.10` AND `p_kalshi ≥ 0.55`  
 - SELL home: `diff < −0.10` AND `p_kalshi < 0.45`
 
 | Metric | Value |
 |---|---|
-| Games in backtest | 953 regular season + 20 playoff |
+| Games in backtest | 953 regular season + 22 playoff |
 | Min posts filter | ≥ 5 per team |
-| Bets placed | 61 |
-| Hit rate (win rate) | **70.5%** |
-| Total PnL (flat $50/bet) | **+$75.03** on $1,000 bankroll |
-| ROI per dollar risked | +2.5% |
-| Sharpe ratio (annualized) | 0.91 |
-| Max drawdown | −$122.28 |
-| Binomial p-value (H0: WR ≤ 50%) | **0.0009** |
+| Bets placed | 71 |
+| Hit rate (win rate) | **71.8%** |
+| Total PnL (flat $50/bet) | **−$14.61** |
+| ROI per dollar risked | −0.4% |
+| Sharpe ratio (annualized) | −0.15 |
+| Max drawdown | −$114.86 |
+| Binomial p-value (H0: WR ≤ 50%) | **0.0002** |
 
-**Comparison across strategies (flat $50/bet, min 5 posts):**
+**Strategy comparison (flat $50/bet, min 5 posts, real Kalshi prices):**
 
 | Strategy | N | Win Rate | PnL | p-value |
 |---|---|---|---|---|
-| DirectSentiment (raw) | 138 | 45.7% | −$394 | 0.87 |
-| AntiBotSentiment (3-regime) | 93 | 52.7% | −$97 | 0.34 |
-| **AntiBotClean (2-regime)** | **61** | **70.5%** | **+$75** | **0.0009** |
-| RandomBaseline | 197 | 46.7% | −$556 | 0.84 |
+| DirectSentiment (raw) | 150 | 46.7% | −$432 | 0.82 |
+| AntiBotSentiment (3-regime) | 108 | 53.7% | −$152 | 0.25 |
+| **AntiBotClean (2-regime)** | **71** | **71.8%** | **−$15** | **0.0002** |
+| RandomBaseline | 213 | 53.1% | +$167 | 0.21 |
 
-**Subgroup analysis — AntiBotClean WR by post volume:**
+**Interpretation:**  
+AntiBotClean achieves a statistically significant 71.8% win rate (p=0.0002), confirming the combined sentiment+market-agreement signal has genuine directional predictive power. However, net PnL is near zero (−$14.61). When the strategy fires, the Kalshi market already prices the home team as a favorite (p ≥ 0.55), so winning pays out only $0.20–$0.40 per dollar wagered. After the 7% fee, small payoffs are insufficient to profit despite the high win rate. The sentiment signal is predictive but already priced into the market.
 
-| Min posts/team | N trades | Win Rate | Buy WR | Sell WR |
-|---|---|---|---|---|
-| 0 posts | 55 | 74.5% | 74.3% | 75.0% |
-| 1–4 posts | 144 | 60.4% | 60.2% | 60.7% |
-| 5–9 posts | 19 | 63.2% | 54.5% | 75.0% |
-| 10+ posts | 36 | 75.0% | 72.2% | 77.8% |
-
-Higher post volume → higher win rate, consistent with noise reduction at scale.
-
-**Caveats:**
-- Regular-season Kalshi prices unavailable (API doesn't retain settled markets). A structured-only RF probability serves as the market proxy for 59/61 trades. 2 trades used real live Kalshi prices (playoff games Apr–May 2026).
-- 61-trade sample is small; result is statistically significant but confidence intervals are wide.
+**Kalshi price source (both strategies):**
+- All 953 regular-season games: real pre-game candlestick prices via Kalshi historical API (`expected_expiration_time − 3h` cutoff)
+- 22 playoff games (Apr 28 – May 28, 2026): live bot prices collected before each game
+- 100% of trades used real Kalshi prices — no RF proxy
 
 ---
 

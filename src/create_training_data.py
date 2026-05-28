@@ -9,9 +9,11 @@ Joins:
 Output:
   data/processed/training_data_with_sentiment.csv
 
-The game timestamp used for the 48-hour Reddit window comes from
-`cutoff_utc` in games_api.csv (the time data was collected, i.e., ~game start).
-Falls back to midnight UTC of the game date when cutoff_utc is absent.
+The game timestamp used for the 48-hour Reddit window is midnight UTC
+of the game date (e.g. game on 2026-02-24 → cutoff = 2026-02-24 00:00 UTC
+≈ 7 PM ET the night before tip-off). `cutoff_utc` in games_api.csv stores
+only the date string; `_game_utc()` always truncates to midnight UTC.
+Consequence: game-day posts (injury/lineup news) are excluded from features.
 
 Usage:
     python -m src.create_training_data
