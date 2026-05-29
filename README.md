@@ -4,6 +4,8 @@ Thesis project: does Reddit fan sentiment add predictive signal for NBA game out
 
 **Answer:** Yes on both counts — marginally. The M3 model (structured stats + full sentiment distribution) achieves AUC 0.696 vs 0.689 for stats alone. The SELL side of the model-edge strategy hits 56.3% win rate in coin-flip games (+$258 over 87 trades in OOS backtest). Full results in [RESULTS.md](RESULTS.md).
 
+
+Claude 
 ---
 
 ## Setup
@@ -205,3 +207,7 @@ python scripts/fetch_all_kalshi_prices.py
 | M3 SELL win rate | 56.3% (87 trades, coin-flip games only) |
 | M3 total PnL | +$154 / Sharpe 0.66 (flat $50/bet, 7% fee) |
 | AntiBotClean win rate | 71.8% (p=0.0002), PnL ≈ −$15 (already priced in) |
+
+
+### Development Notes
+Portions of this codebase were developed with Claude Code.
