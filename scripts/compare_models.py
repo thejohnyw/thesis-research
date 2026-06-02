@@ -394,7 +394,7 @@ def main() -> None:
         m3_game_keys = {(t["date"], t["home_team"], t["away_team"]) for t in m3_traded_rows}
         m3_eligible = [r for r in rows_all
                        if (r["date"], r["home_team"], r["away_team"]) in m3_game_keys]
-        rand_m3_pnls, rand_m3_wrs = [], []
+        rand_m3_pnls, rand_m3_wrs, rand_m3_sharpes = [], [], []
         for trial in range(args.rand_trials):
             rng_trial = random.Random(args.seed + trial)
             s = simulate(m3_eligible, threshold=0.0,
@@ -402,13 +402,14 @@ def main() -> None:
             if s["n"] > 0:
                 rand_m3_pnls.append(s["total_pnl"])
                 rand_m3_wrs.append(s["wr"])
+                rand_m3_sharpes.append(s["sharpe"])
         if rand_m3_pnls:
             rand_m3_name = f"Random on M3 games ({args.rand_trials} trials avg)"
             rand_m3_sim = {
                 "n": len(m3_eligible),
                 "wr": float(np.mean(rand_m3_wrs)),
                 "total_pnl": float(np.mean(rand_m3_pnls)),
-                "sharpe": 0.0, "maxdd": 0.0,
+                "sharpe": float(np.mean(rand_m3_sharpes)), "maxdd": 0.0,
                 "binom_p": float(np.mean([r >= 0.5 for r in rand_m3_wrs])),
                 "trades": [],
             }
