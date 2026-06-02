@@ -357,7 +357,7 @@ def main() -> None:
         sim_results[name] = sim
         _print_sim_row(name, sim)
 
-    # Random baseline — Monte Carlo over eligible games
+    # Random baseline — Monte Carlo over ALL eligible games (230)
     eligible_rows = [r for i, r in enumerate(rows_all)
                      if oos_mask[i]
                      and args.mkt_lo <= r["kalshi_prob"] <= args.mkt_hi
@@ -385,6 +385,35 @@ def main() -> None:
         }
         sim_results["random"] = rand_sim
         _print_sim_row(rand_name, rand_sim)
+
+    # Random baseline on M3's exact traded games (apples-to-apples)
+    m3_sim = sim_results.get("Model 3 — Thesis   (struct+full sent)")
+    if m3_sim:
+        m3_traded_rows = m3_sim["trades"]  # rows M3 actually traded
+        # Reconstruct row dicts from trade records
+        m3_game_keys = {(t["date"], t["home_team"], t["away_team"]) for t in m3_traded_rows}
+        m3_eligible = [r for r in rows_all
+                       if (r["date"], r["home_team"], r["away_team"]) in m3_game_keys]
+        rand_m3_pnls, rand_m3_wrs = [], []
+        for trial in range(args.rand_trials):
+            rng_trial = random.Random(args.seed + trial)
+            s = simulate(m3_eligible, threshold=0.0,
+                         model_probs=None, rng=rng_trial, **sim_params)
+            if s["n"] > 0:
+                rand_m3_pnls.append(s["total_pnl"])
+                rand_m3_wrs.append(s["wr"])
+        if rand_m3_pnls:
+            rand_m3_name = f"Random on M3 games ({args.rand_trials} trials avg)"
+            rand_m3_sim = {
+                "n": len(m3_eligible),
+                "wr": float(np.mean(rand_m3_wrs)),
+                "total_pnl": float(np.mean(rand_m3_pnls)),
+                "sharpe": 0.0, "maxdd": 0.0,
+                "binom_p": float(np.mean([r >= 0.5 for r in rand_m3_wrs])),
+                "trades": [],
+            }
+            _print_sim_row(rand_m3_name, rand_m3_sim)
+            print(f"  M3 vs matched random: ${m3_sim['total_pnl'] - float(np.mean(rand_m3_pnls)):+.2f}")
 
     print(SEP)
 

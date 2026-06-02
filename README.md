@@ -206,7 +206,8 @@ python scripts/fetch_all_kalshi_prices.py
 | Kalshi market AUC | 0.724 (well-informed benchmark) |
 | M3 SELL win rate | 56.3% (87 trades, coin-flip games only) |
 | M3 total PnL | +$154 / Sharpe 0.66 (flat $50/bet, 7% fee) |
-| AntiBotClean win rate | 71.8% (p=0.0002), PnL ≈ −$15 (already priced in) |
+| M3 vs matched random | +$292 (random buy/sell on same 155 games avg −$138) |
+| AntiBotClean win rate | 71.8% (p=0.0002), PnL ≈ −$20 (already priced in) |
 
 
 ### Development Notes
